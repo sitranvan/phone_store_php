@@ -1,0 +1,182 @@
+<?php
+require_once 'vendor/autoload.php';
+function createController($controllerPath, $controllerClass)
+{
+    if (!file_exists($controllerPath)) {
+        $controllerDirectory = dirname($controllerPath);
+        if (!is_dir($controllerDirectory)) {
+            mkdir($controllerDirectory, 0755, true);
+        }
+        $template = templateController($controllerClass);
+        file_put_contents($controllerPath, $template);
+        echo "\033[32m✔️  Created controller " . $controllerClass . " successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Controller " . $controllerClass . " already exists\033[0m\n";
+    }
+}
+
+function deleteController($controllerPath)
+{
+    if (file_exists($controllerPath)) {
+        unlink($controllerPath);
+        echo "\033[32m✔️ Deleted successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Controller not found\033[0m\n";
+    }
+}
+
+function createModel($modelPath, $modelClass)
+{
+    if (!file_exists($modelPath)) {
+        $modelDirectory = dirname($modelPath);
+        if (!is_dir($modelDirectory)) {
+            mkdir($modelDirectory, 0755, true);
+        }
+        $template = templateModel($modelClass);
+        file_put_contents($modelPath, $template);
+        echo "\033[32m✔️  Created model " . $modelClass . " successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Model " . $modelClass . " already exists\033[0m\n";
+    }
+}
+
+function deleteModel($modelPath)
+{
+    if (file_exists($modelPath)) {
+        unlink($modelPath);
+        echo "\033[32m✔️  Deleted successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Model not found\033[0m\n";
+    }
+}
+
+
+function createMiddleware($middlewarePath, $middlewareClass)
+{
+    if (!file_exists($middlewarePath)) {
+        $middlewareDirectory = dirname($middlewarePath);
+        if (!is_dir($middlewareDirectory)) {
+            mkdir($middlewareDirectory, 0755, true);
+        }
+        $template = templateMiddleware($middlewareClass);
+        file_put_contents($middlewarePath, $template);
+        echo "\033[32m✔️  Created middleware " . $middlewareClass . " successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Middleware " . $middlewareClass . " already exists\033[0m\n";
+    }
+}
+
+
+function deleteMiddleware($middlewarePath)
+{
+    if (file_exists($middlewarePath)) {
+        unlink($middlewarePath);
+        echo "\033[32m✔️  Deleted successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Middleware not found\033[0m\n";
+    }
+}
+
+function createProvider($providerPath, $providerClass)
+{
+    if (!file_exists($providerPath)) {
+        $providerDirectory = dirname($providerPath);
+        if (!is_dir($providerDirectory)) {
+            mkdir($providerDirectory, 0755, true);
+        }
+        $template = templateProvider($providerClass);
+        file_put_contents($providerPath, $template);
+        echo "\033[32m✔️  Created provider " . $providerClass . " successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Provider " . $providerClass . " already exists\033[0m\n";
+    }
+}
+
+
+function deleteProvider($providerPath)
+{
+    if (file_exists($providerPath)) {
+        unlink($providerPath);
+        echo "\033[32m✔️  Deleted successfully\033[0m\n";
+    } else {
+        echo "\033[31m❌ Provider not found\033[0m\n";
+    }
+}
+
+
+if (!empty($_SERVER['argv'][1])) {
+    $task = $_SERVER['argv'][1];
+
+    switch ($task) {
+        case 'make:controller':
+            if (!empty($_SERVER['argv'][2])) {
+                $controller = $_SERVER['argv'][2];
+                $controllerArray = explode('/', $controller);
+                $controllerClass = end($controllerArray);
+                $controllerPath = 'app/controllers/' . $controller . '.php';
+                createController($controllerPath, $controllerClass);
+            }
+            break;
+
+        case 'delete:controller':
+            if (!empty($_SERVER['argv'][2])) {
+                $controller = $_SERVER['argv'][2];
+                $controllerPath = 'app/controllers/' . $controller . '.php';
+                deleteController($controllerPath);
+            }
+            break;
+        case 'make:model':
+            if (!empty($_SERVER['argv'][2])) {
+                $model = $_SERVER['argv'][2];
+                $modelArray = explode('/', $model);
+                $modelClass = end($modelArray);
+                $modelPath = 'app/models/' . $model . '.php';
+                createModel($modelPath, $modelClass);
+            }
+            break;
+        case 'delete:model':
+            if (!empty($_SERVER['argv'][2])) {
+                $model = $_SERVER['argv'][2];
+                $modelPath = 'app/models/' . $model . '.php';
+                deleteModel($modelPath);
+            }
+            break;
+        case 'make:middleware':
+            if (!empty($_SERVER['argv'][2])) {
+                $middleware = $_SERVER['argv'][2];
+                $middlewareArray = explode('/', $middleware);
+                $middlewareClass = end($middlewareArray);
+                $middlewarePath = 'app/middlewares/' . $middleware . '.php';
+                createMiddleware($middlewarePath, $middlewareClass);
+            }
+            break;
+
+        case 'delete:middleware':
+            if (!empty($_SERVER['argv'][2])) {
+                $middleware = $_SERVER['argv'][2];
+                $middlewarePath = 'app/middlewares/' . $middleware . '.php';
+                deleteMiddleware($middlewarePath);
+            }
+            break;
+        case 'make:provider':
+            if (!empty($_SERVER['argv'][2])) {
+                $provider = $_SERVER['argv'][2];
+                $providerArray = explode('/', $provider);
+                $providerClass = end($providerArray);
+                $providerPath = 'app/providers/' . $provider . '.php';
+                createProvider($providerPath, $providerClass);
+            }
+            break;
+
+        case 'delete:provider':
+            if (!empty($_SERVER['argv'][2])) {
+                $provider = $_SERVER['argv'][2];
+                $providerPath = 'app/providers/' . $provider . '.php';
+                deleteProvider($providerPath);
+            }
+            break;
+        default:
+            echo "\033[31m❌ Invalid task\033[0m\n";
+            break;
+    }
+}

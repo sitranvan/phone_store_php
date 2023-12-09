@@ -1,0 +1,30 @@
+{
+  "name": "sitranvan/mvc_autoload",
+  "description": "MVC auto load composer",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "App\\Core\\": "core/",
+      "App\\Model\\": "app/models/",
+      "App\\Middlewares\\": "app/middlewares/",
+      "App\\Providers\\": "app/providers/",
+      "App\\Classes\\": "app/classes/"
+    },
+    "files": [
+      "app/helpers/functions.php",
+      "app/helpers/display.php",
+      "templates/template.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Si Tran Van",
+      "email": "it.sitranvan@gmail.com"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.5",
+    "phpmailer/phpmailer": "^6.8"
+  }
+}

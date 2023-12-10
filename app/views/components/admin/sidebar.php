@@ -12,13 +12,18 @@
 
         <li class="nav-item">
             <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>Quản lý sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <!-- Class active collapse show-->
             <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= route('admin/danh-muc') ?>" class="active">
-                        <i class="bi bi-circle"></i><span>List</span>
+                    <a href="<?= route('admin/san-pham') ?>" class="active">
+                        <i class="bi bi-circle"></i><span>Danh sách</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= route('admin/them-san-pham') ?>" class="active">
+                        <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
                     </a>
                 </li>
 

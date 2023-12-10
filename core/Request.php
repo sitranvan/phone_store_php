@@ -38,12 +38,19 @@ class Request
             $this->sanitizeData($_POST);
         }
 
+
         return $this->dataFields;
     }
     public function get($name = '')
     {
         return $this->getAll()[$name];
     }
+
+    public function getFile($name = '')
+    {
+        return $_FILES[$name] ?? null;
+    }
+
 
     private function sanitizeData($data)
     {

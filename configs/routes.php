@@ -3,8 +3,9 @@ $routes = [
     // Admin route
     _ADMIN => [
         'admin' => 'admin/DashboardController',
-        'admin/danh-muc' => 'admin/CategoryController',
-        'admin/dang-xuat' => 'admin/auth/LogoutController'
+        'admin/san-pham' => 'admin/products/ListProductController',
+        'admin/them-san-pham' => 'admin/products/AddProductController',
+        'admin/submit-add-product' => 'admin/products/AddProductController/handle',
     ],
     // Clients route
     _CLENTS => [

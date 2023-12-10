@@ -17,7 +17,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->user = new User();
-        $this->verify = new Verify();
     }
     public function index()
     {

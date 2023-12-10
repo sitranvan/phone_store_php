@@ -67,3 +67,8 @@ function checkTimeVerified($verifiedExpires)
 
     return $currentTime - $timestamp;
 }
+
+function getImage($path)
+{
+    return _WEB_ROOT . '/app/uploads/' . $path;
+}

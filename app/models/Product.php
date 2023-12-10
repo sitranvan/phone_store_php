@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->insert($this->table, $dataInsert);
     }
+
+    public function getAllProduct()
+    {
+        return $this->getAll($this->table);
+    }
 }

@@ -40,8 +40,8 @@
             <div class="form-group">
                 <label class="form-label" for="Danh mục">Trạng thái</label>
                 <select class="form-select" name="active" id="">
-                    <option value="">Chưa kích hoạt</option>
-                    <option value="">Kích hoạt</option>
+                    <option value="0">Chưa kích hoạt</option>
+                    <option value="1">Kích hoạt</option>
                 </select>
             </div>
         </div>

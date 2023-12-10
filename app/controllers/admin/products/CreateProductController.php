@@ -8,7 +8,7 @@ use App\Model\Brand;
 use App\Model\Category;
 use App\Model\Product;
 
-class AddProductController extends Controller
+class CreateProductController extends Controller
 {
     private $data = [];
     private $product;
@@ -32,11 +32,11 @@ class AddProductController extends Controller
         $this->data['forward']['allCategory'] = $allCategory;
         $this->data['forward']['msg'] = Session::flash('msg');
         $this->data['forward']['msg_type'] = Session::flash('msg_type');
-        $this->data['view'] = $this->view(_ADMIN, 'products/add');
+        $this->data['view'] = $this->view(_ADMIN, 'products/create');
 
         return $this->layout("admin_layout", $this->data);
     }
-    public function handle()
+    public function createProduct()
     {
         $request = new Request();
 

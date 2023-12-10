@@ -24,8 +24,8 @@
                         <td>
                             <img width="60" height="60" src="<?= getImage($product['photo']) ?>" alt="<?= $product['name'] ?>">
                         </td>
-                        <td><?= $product['price'] ?></td>
-                        <td><?= $product['price_promotion'] ?  $product['price_promotion'] : 'Chưa khuyến mãi' ?></td>
+                        <td><?= number_format($product['price']) . 'đ' ?></td>
+                        <td><?= $product['price_promotion'] ? number_format($product['price_promotion']) . 'đ' : 'Chưa khuyến mãi' ?></td>
                         <td>
                             <?php if ($product['active'] == 0) : ?>
                                 <button class="btn btn-sm btn-warning">Chưa kích hoạt</button>
@@ -34,11 +34,11 @@
                             <?php endif ?>
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-danger" href="">
+                            <a onclick="confirmDelete(event)" class="btn btn-sm btn-danger confirm-delete" href="<?= route('admin/xoa-san-pham/' . $product['id']) ?>">
                                 <i class='bx bxs-trash-alt'></i>
                                 Xóa
                             </a>
-                            <a class="btn btn-sm btn-success" href="">
+                            <a class="btn btn-sm btn-success" href="<?= route('admin/sua-san-pham/' . $product['id']) ?>">
                                 <i class='bx bx-edit'></i>
                                 Sửa
                             </a>

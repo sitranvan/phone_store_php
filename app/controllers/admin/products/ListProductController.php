@@ -14,7 +14,6 @@ class ListProductController extends Controller
     public function index()
     {
         $allProduct = $this->product->getAllProduct();
-
         $this->data["title"] = "Danh sách sản phẩm";
         $this->data['view'] = $this->view(_ADMIN, 'products/index');
         $this->data['forward']['allProduct'] = $allProduct;

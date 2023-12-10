@@ -5,7 +5,10 @@ $routes = [
         'admin' => 'admin/DashboardController',
         'admin/san-pham' => 'admin/products/ListProductController',
         'admin/them-san-pham' => 'admin/products/AddProductController',
-        'admin/submit-add-product' => 'admin/products/AddProductController/handle',
+        'admin/submit-add-product' => 'admin/products/CreateProductController/createProduct',
+        'admin/sua-san-pham/(.+)' => 'admin/products/EditProductController/index/$1',
+        'admin/submit-edit-product' => 'admin/products/EditProductController/updateProduct',
+        'admin/xoa-san-pham/(.+)' => 'admin/products/DeleteProductController/index/$1',
     ],
     // Clients route
     _CLENTS => [

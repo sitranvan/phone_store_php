@@ -12,10 +12,10 @@ class Model extends DataBase
         $fieldList = implode(',', $fieldArray);
         return $this->fetchDB("SELECT $fieldList FROM $table $condition");
     }
-    public function getAll($table = '', $fieldArray = ['*'])
+    public function getAll($table = '', $condition = '', $fieldArray = ['*'])
     {
         $fieldList = implode(',', $fieldArray);
-        return $this->fetchAllDB("SELECT $fieldList FROM $table");
+        return $this->fetchAllDB("SELECT $fieldList FROM $table $condition");
     }
     public function lastInsertId()
     {

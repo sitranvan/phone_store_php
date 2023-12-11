@@ -3,8 +3,12 @@ $routes = [
     // Admin route
     _ADMIN => [
         'admin' => 'admin/DashboardController',
-        'admin/danh-muc' => 'admin/CategoryController',
-        'admin/dang-xuat' => 'admin/auth/LogoutController'
+        'admin/san-pham' => 'admin/products/ListProductController',
+        'admin/them-san-pham' => 'admin/products/CreateProductController',
+        'admin/submit-add-product' => 'admin/products/CreateProductController/createProduct',
+        'admin/sua-san-pham/(.+)' => 'admin/products/EditProductController/index/$1',
+        'admin/submit-edit-product' => 'admin/products/EditProductController/updateProduct',
+        'admin/xoa-san-pham/(.+)' => 'admin/products/DeleteProductController/index/$1',
     ],
     // Clients route
     _CLENTS => [

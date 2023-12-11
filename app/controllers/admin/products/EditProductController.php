@@ -60,6 +60,7 @@ class EditProductController extends Controller
                 'active' => $request->get('active'),
                 'category_id' => $request->get('category_id'),
                 'brand_id' => $request->get('brand_id'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ];
 
 

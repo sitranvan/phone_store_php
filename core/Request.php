@@ -41,9 +41,12 @@ class Request
 
         return $this->dataFields;
     }
-    public function get($name = '')
+    public function get($name = '', $defaultValue = null)
     {
-        return $this->getAll()[$name];
+        if ($defaultValue) {
+            return  isset($this->getAll()[$name]) ? $this->getAll()[$name] : $defaultValue;
+        }
+        return  isset($this->getAll()[$name]) ? $this->getAll()[$name] : '';
     }
 
     public function getFile($name = '')

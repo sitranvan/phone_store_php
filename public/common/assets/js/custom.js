@@ -17,22 +17,19 @@ if (checkTerms) {
 function confirmDelete(event) {
   event.preventDefault();
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "Bạn có chắc?",
+    text: "Bạn có chắc chắn muốn xóa!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
+    confirmButtonText: "Có, tôi chắc!",
+    cancelButton: "Không",
   }).then((result) => {
     if (result.isConfirmed) {
-      if (result.isConfirmed) {
-        // Nếu người dùng xác nhận xóa, giả lập sự kiện nhấn vào thẻ link
-        var link = document
-          .querySelector(".confirm-delete")
-          .getAttribute("href");
-        window.location.href = link;
-      }
+      // Nếu người dùng xác nhận xóa, giả lập sự kiện nhấn vào thẻ link
+      var link = document.querySelector(".confirm-delete").getAttribute("href");
+      window.location.href = link;
     }
   });
 }

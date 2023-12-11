@@ -15,12 +15,13 @@ class DeleteProductController extends Controller
     }
     public function index($id)
     {
-        $deleteStatus = $this->product->deleteProduct($id);
-        if ($deleteStatus) {
-            Session::flash('toast', toast('Xoas sản phẩm thành công', 'success'));
-            Response::redirect('admin/san-pham');
-        } else {
-            Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
-        }
+        echo $id;
+        // $deleteStatus = $this->product->deleteProduct($id);
+        // if ($deleteStatus) {
+        //     Session::flash('toast', toast('Xoas sản phẩm thành công', 'success'));
+        //     Response::redirect('admin/san-pham');
+        // } else {
+        //     Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
+        // }
     }
 }

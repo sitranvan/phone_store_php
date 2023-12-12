@@ -1,5 +1,6 @@
 <?php
 
+use App\Classes\Validate;
 use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Response;
@@ -34,6 +35,8 @@ class EditProductController extends Controller
 
         $this->data['forward']['msg'] = Session::flash('msg');
         $this->data['forward']['msg_type'] = Session::flash('msg_type');
+        $this->data['forward']['errors'] = Session::flash('errors');
+        $this->data['forward']['old'] = Session::flash('old');
         $this->data['view'] = $this->view(_ADMIN, 'products/edit');
         return $this->layout("admin_layout", $this->data);
     }
@@ -41,36 +44,46 @@ class EditProductController extends Controller
     public function updateProduct()
     {
         $id = Session::flash('id');
+        $validate = new Validate();
         $request = new Request();
-
         if ($request->isPost()) {
-            // Xử lý upload hình ảnh
-            $fileName = $request->getFile('photo')['name'];
-            $tmpFileName = $request->getFile('photo')['tmp_name'];
-            $fileName = time() . '_' . $fileName;
-            $targetFilePath = 'app/uploads/' . $fileName;
-            move_uploaded_file($tmpFileName, $targetFilePath);
 
-            $dataUpdate = [
-                'name' => $request->get('name'),
-                'price' => $request->get('price'),
-                'price_promotion' => $request->get('price_promotion'),
-                'description' => $request->get('description'),
-                'photo' => $fileName,
-                'active' => $request->get('active'),
-                'category_id' => $request->get('category_id'),
-                'brand_id' => $request->get('brand_id'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ];
-
-
-            $updateStatus = $this->product->updateProduct($dataUpdate, $id);
-            if ($updateStatus) {
-                Session::flash('toast', toast('Cập nhật sản phẩm thành công', 'success'));
-                Response::redirect('admin/san-pham');
-            } else {
-                Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
-            }
+            $validate->productName($request->get('name'));
+            $validate->productPrice($request->get('price'));
+            $validate->productFile($request->getFile('photo')['name']);
         }
+        if (empty($validate->getErrors())) {
+            // $fileName = $request->getFile('photo')['name'];
+            // $tmpFileName = $request->getFile('photo')['tmp_name'];
+            // $fileName = time() . '_' . $fileName;
+            // $targetFilePath = 'app/uploads/' . $fileName;
+            // move_uploaded_file($tmpFileName, $targetFilePath);
+
+            // $dataUpdate = [
+            //     'name' => $request->get('name'),
+            //     'price' => $request->get('price'),
+            //     'price_promotion' => $request->get('price_promotion'),
+            //     'description' => $request->get('description'),
+            //     'photo' => $fileName,
+            //     'active' => $request->get('active'),
+            //     'category_id' => $request->get('category_id'),
+            //     'brand_id' => $request->get('brand_id'),
+            //     'updated_at' => date('Y-m-d H:i:s'),
+            // ];
+
+
+            // $updateStatus = $this->product->updateProduct($dataUpdate, $id);
+            // if ($updateStatus) {
+            //     Session::flash('toast', toast('Cập nhật sản phẩm thành công', 'success'));
+            //     Response::redirect('admin/san-pham');
+            // } else {
+            //     Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
+            // }
+        } else {
+            Response::setMessage('Vui lòng kiêm tra lại thông tin nhập vào');
+            Session::flash('old', $request->getAll());
+            Session::flash('errors', $validate->getErrors());
+        }
+        Response::redirect('admin/sua-san-pham/' . $id);
     }
 }

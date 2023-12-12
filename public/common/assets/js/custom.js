@@ -14,33 +14,38 @@ if (checkTerms) {
   });
 }
 //
-function confirmDelete(event, productId) {
+function confirmDelete(event) {
   event.preventDefault();
   Swal.fire({
     title: "Bạn có chắc?",
-    text: "Có, tôi chắc chắn muốn xóa!",
+    text: "Bạn có chắc chắn muốn xóa!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Có, xóa ngay!",
-    cancelButtonText: "Không",
+    confirmButtonText: "Có, tôi chắc!",
+    cancelButton: "Không",
   }).then((result) => {
     if (result.isConfirmed) {
-      // Sử dụng productId để xây dựng URL xóa sản phẩm cụ thể
-      var link = document.querySelector(".confirm-delete-" + productId + "");
+      // Nếu người dùng xác nhận xóa, giả lập sự kiện nhấn vào thẻ link
+      var link = document.querySelector(".confirm-delete").getAttribute("href");
       window.location.href = link;
     }
   });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   const fileInput = document.getElementById("fileInput");
-
+  const fileInputLabel = document.getElementById("fileInputLabel");
   const fileSelectedText = document.getElementById("fileSelectedText");
+  const reviewEdit = document.getElementById("review-edit");
   const selectedImage = document.getElementById("selectedImage");
-
   if (fileInput) {
     fileInput.addEventListener("change", function () {
+      // Xóa đường dẫn của hình ảnh sửa bỏ
+      if (reviewEdit) {
+        reviewEdit.remove();
+      }
       const file = this.files[0];
 
       if (file) {

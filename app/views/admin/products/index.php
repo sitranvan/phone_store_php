@@ -112,19 +112,19 @@
             <ul class="pagination">
                 <?php if ($page > 1) : ?>
                     <li class="page-item">
-                        <a class="page-link link-item" href="<?= route('admin/san-pham?page=' . ($page - 1)) ?>">
+                        <a class="page-link link-item" href="<?= route('admin/san-pham?' . $queryString . '&page=' . ($page - 1)) ?>">
                             <i class="fa-solid fa-chevron-left"></i>
                         </a>
                     </li>
                 <?php endif ?>
                 <?php for ($index = $startPage; $index <= $endPage; $index++) : ?>
                     <li class="page-item" aria-current="page">
-                        <a class="page-link link-item  <?= $index == $page ? 'active' : false ?>" href="<?= route('admin/san-pham?page=' . $index) ?>"><?= $index ?></a>
+                        <a class="page-link link-item  <?= $index == $page ? 'active' : false ?>" href="<?= route('admin/san-pham?' . $queryString . '&page=' . $index) ?>"><?= $index ?></a>
                     </li>
                 <?php endfor ?>
                 <?php if ($page < $totalPage) : ?>
                     <li class="page-item">
-                        <a class="page-link link-item" href="<?= route('admin/san-pham?page=' . ($page + 1)) ?>">
+                        <a class="page-link link-item" href="<?= route('admin/san-pham?' . $queryString . '&page=' . ($page + 1)) ?>">
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
                     </li>

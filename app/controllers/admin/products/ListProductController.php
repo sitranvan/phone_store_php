@@ -38,7 +38,17 @@ class ListProductController extends Controller
                 $page = $request->get('page', 1);
             }
         }
+        // Xử lí khi tìm kiếm hoặc lọc sau đó bấm phân trang thì sẽ mất đi lọc và phân trang
+        $urlParams = [
+            'search' => $search,
+            'active' => $active,
+            'category' => $category,
+            'brand' => $brand,
+            'sort' => $sort,
+            'page' => $page,
 
+        ];
+        $queryString = http_build_query($urlParams);
 
         $allProduct = $this->product->getAllProduct($search, $active, $category, $brand, $sort, $page);
 
@@ -49,6 +59,7 @@ class ListProductController extends Controller
         $this->data['view'] = $this->view(_ADMIN, 'products/index');
         $this->data['forward']['allProduct'] = $allProduct;
         $this->data['forward']['totalPage'] = $totalPage;
+        $this->data['forward']['queryString'] = $queryString;
         $this->data['forward']['page'] = $page;
         $startPage = max(1, $page - 2);
         $endPage = min($totalPage, $page + 2);

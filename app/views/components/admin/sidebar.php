@@ -4,25 +4,25 @@
 
         <li class="nav-item">
             <!-- Class active collapsed -->
-            <a class="nav-link collapsed" href="<?= route('admin') ?>">
+            <a class="nav-link <?= _PATH_INFO == 'admin' ? 'active' : 'collapsed' ?>" href="<?= route('admin') ?>">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Quản lý sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+
+        <li class="nav-item ">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                <i class="bi bi-journal-text"></i><span>Quản lý sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <!-- Class active collapse show-->
-            <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+            <ul id="forms-nav" class="nav-content collapsed" data-bs-parent="#sidebar-nav" style="">
                 <li>
-                    <a href="<?= route('admin/san-pham') ?>" class="active">
+                    <a href="<?= route('admin/san-pham') ?>" class="<?= _PATH_INFO == 'admin/san-pham' ? 'active' : '' ?>">
                         <i class="bi bi-circle"></i><span>Danh sách</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= route('admin/them-san-pham') ?>" class="active">
+                    <a href="<?= route('admin/them-san-pham') ?>" class="<?= _PATH_INFO == 'admin/them-san-pham' ? 'active' : '' ?>">
                         <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
                     </a>
                 </li>

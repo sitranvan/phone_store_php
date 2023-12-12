@@ -1,57 +1,35 @@
 <div class="container">
-    <div class="row mt-lg-3">
+    <div class="row mt-lg-3 home d-flex align-items-start">
         <!-- Aside -->
-        <div class="col-lg-3 bg-white rounded-2 py-3 px-2 category  position-relative d-none d-lg-block">
-            <h2 class="ps-3 fs-6 fw-bold">Danh mục</h2>
+        <div class="col-lg-3 bg-white rounded-2 py-3 px-2 aside position-relative d-none d-lg-block">
+            <h2 class="ps-3 fs-6 text-uppercase fw-bold">Danh mục</h2>
             <ul class="list-group list-group-flush px-1 category-list">
-                <li class="">
-                    <img src="https://mobileworld.com.vn/uploads/product/09_2018/samsung-galaxy-s9-moi-100-fullbox-ban-my.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus " href="#">Điện thoại</a>
-                </li>
-                <li class="">
-                    <img src="https://www.asus.com/media/Odin/Websites/global/Series/24.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Laptop</a>
-                </li>
-                <li class="">
-                    <img src="https://bizweb.dktcdn.net/100/031/560/products/broshop-tai-nghe-ps5-pulse-3d-wireless-headset-1.png?v=1605265836707" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Tai nghe phụ kiện</a>
-                </li>
-                <li class="">
-                    <img src="https://soundpeatsvietnam.com/wp-content/uploads/2021/12/dong-ho-soundpeats-watch2-1.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Đồng hồ</a>
-                </li>
-                <li class="">
-                    <img src="https://vn.canon/media/migration/shared/live/products/VN/powershot-g1x-mark-ii-b1.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Máy ảnh</a>
-                </li>
+                <?php foreach ($allCategory as $category) : ?>
+                    <li class="">
+                        <a class="text-decoration-none text-cus fs-7 <?= isset($allQuery['category']) && $allQuery['category'] == $category['id'] ? 'text-danger' : '' ?> " href="javascript:void(0);" onclick="updateParams('category', <?= $category['id'] ?>)">
+                            <i class="fa-solid fa-caret-right"></i>
+                            <?= $category['name'] ?>
+                        </a>
+                    </li>
+                <?php endforeach ?>
             </ul>
             <div style="width: 70%;height: 1px; background-color: #d2d2d2;" class="my-4"></div>
-            <h2 class="ps-3 fs-6 fw-bold">Thương hiệu</h2>
+            <h2 class="ps-3 fs-6 text-uppercase fw-bold">Thương hiệu</h2>
             <ul class="list-group list-group-flush px-1 category-list">
-                <li class="">
-                    <img src="https://mobileworld.com.vn/uploads/product/09_2018/samsung-galaxy-s9-moi-100-fullbox-ban-my.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus " href="#">Samsung</a>
-                </li>
-                <li class="">
-                    <img src="https://www.asus.com/media/Odin/Websites/global/Series/24.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Oppo</a>
-                </li>
-                <li class="">
-                    <img src="https://bizweb.dktcdn.net/100/031/560/products/broshop-tai-nghe-ps5-pulse-3d-wireless-headset-1.png?v=1605265836707" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Nokia</a>
-                </li>
-                <li class="">
-                    <img src="https://soundpeatsvietnam.com/wp-content/uploads/2021/12/dong-ho-soundpeats-watch2-1.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Vivo</a>
-                </li>
-                <li class="">
-                    <img src="https://vn.canon/media/migration/shared/live/products/VN/powershot-g1x-mark-ii-b1.png" alt="" class="category-img">
-                    <a class="text-decoration-none text-cus" href="#">Iphone</a>
-                </li>
+                <?php foreach ($allBrand as $brand) : ?>
+                    <li class="">
+                        <a class="text-decoration-none text-cus fs-7 <?= isset($allQuery['brand']) && $allQuery['brand'] == $brand['id'] ? 'text-danger' : '' ?> " href="javascript:void(0);" onclick="updateParams('brand', <?= $brand['id'] ?>)">
+                            <i class="fa-solid fa-caret-right"></i>
+                            <?= $brand['name'] ?>
+                        </a>
+                    </li>
+                <?php endforeach ?>
             </ul>
+
+
         </div>
         <!-- Product -->
-        <div class="col-lg-9 mt-3 mt-lg-0">
+        <div class="col-lg-9 mt-3 mt-lg-0 product">
             <!-- Slider -->
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner rounded-4">
@@ -75,21 +53,18 @@
                 </button>
             </div>
             <!-- Filter -->
-            <ul class="nav nav-pills mt-3 d-flex align-items-center">
+            <ul class="nav nav-pills mt-3 d-flex align-items-center filter">
                 <li class="nav-item filter-icon">
-                    <span class="nav-link bg-primary text-white d-flex align-items-center gap-2" aria-current="page" href="#">Lọc SP
+                    <span class="nav-link bg-success text-white d-flex align-items-center gap-2" aria-current="page" href="#">Lọc SP
                         <i class="fa-solid fa-filter"></i>
                     </span>
                 </li>
-                <li class="nav-item ms-4 ">
-                    <button class="btn btn-outline-primary filter-btn-new">Mới nhất</button>
-                </li>
+
                 <li class="nav-item ms-4 filter-price">
-                    <select class="form-select ">
-                        <option selected>Theo giá</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="sortByDropdown" onchange="updateSortBy(this.value)">
+                        <option value="all" selected>Theo giá</option>
+                        <option value="asc">Từ thấp đến cao</option>
+                        <option value="desc">Từ cao đến thấp</option>
                     </select>
                 </li>
                 <!-- Category mobile -->
@@ -116,90 +91,58 @@
             </ul>
             <!-- List product -->
             <div class="product-row">
-                <a href="#" class=" product-col">
-                    <div class="product-img">
-                        <img src="https://salt.tikicdn.com/cache/280x280/ts/product/f5/52/80/675e31a670afc560e7b0e46c0b65fb4f.png.webp" alt="product">
+
+                <?php if (!empty($allProduct)) :
+                    foreach ($allProduct as $product) : ?>
+                        <a href="#" class=" product-col">
+                            <div class="product-img">
+                                <img src="<?= getImage($product['photo']) ?>" alt="<?= $product['name'] ?>">
+                            </div>
+                            <div class="product-content">
+                                <h3 style="height: 45px;" class="product-name"><?= $product['name'] ?></h3>
+
+                                <div class="d-flex align-items-center gap-1">
+                                    <p class="product-price fs-6 fw-normal"><?= number_format($product['price']) ?>₫</p>
+                                    <?php if ($product['price_promotion']) : ?>
+                                        <p style="font-size: 12px;" class="product-price text-decoration-line-through text-secondary mt-2 fw-normal"><?= number_format($product['price_promotion']) ?>₫</p>
+                                    <?php endif ?>
+                                </div>
+                                <span class="product-stock">Đã bán 1000+</span>
+                            </div>
+
+                        </a>
+                    <?php endforeach;
+                else : ?>
+                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                        <img width="150" height="150" src="https://cdn-icons-png.flaticon.com/512/5400/5400905.png" alt="">
+                        <div class="fs-6 fw-600 text-secondary text-uppercase">Chưa có sản phẩm nào</div>
                     </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Apple Iphone 14ProMax</h3>
-                        <span class="product-stock">Đã bán 1000+</span>
-                        <p class="product-price">32.000.000 ₫</p>
-                    </div>
-                    <div class="product-ship">
-                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/bf/5b/b9/f54345d674f86ab1bc3f8a68e91ee049.png" alt="icon-astra"><span>Giao siêu tốc 2H</span>
-                    </div>
-                </a>
-                <a href="#" class=" product-col">
-                    <div class="product-img">
-                        <img src="https://salt.tikicdn.com/cache/280x280/ts/product/f5/52/80/675e31a670afc560e7b0e46c0b65fb4f.png.webp" alt="product">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Apple Iphone 14ProMax</h3>
-                        <span class="product-stock">Đã bán 1000+</span>
-                        <p class="product-price">32.000.000 ₫</p>
-                    </div>
-                    <div class="product-ship">
-                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/bf/5b/b9/f54345d674f86ab1bc3f8a68e91ee049.png" alt="icon-astra"><span>Giao siêu tốc 2H</span>
-                    </div>
-                </a>
-                <a href="#" class="  product-col">
-                    <div class="product-img">
-                        <img src="https://salt.tikicdn.com/cache/280x280/ts/product/f5/52/80/675e31a670afc560e7b0e46c0b65fb4f.png.webp" alt="product">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Apple Iphone 14ProMax</h3>
-                        <span class="product-stock">Đã bán 1000+</span>
-                        <p class="product-price">32.000.000 ₫</p>
-                    </div>
-                    <div class="product-ship">
-                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/bf/5b/b9/f54345d674f86ab1bc3f8a68e91ee049.png" alt="icon-astra"><span>Giao siêu tốc 2H</span>
-                    </div>
-                </a>
-                <a href="#" class="  product-col">
-                    <div class="product-img">
-                        <img src="https://salt.tikicdn.com/cache/280x280/ts/product/f5/52/80/675e31a670afc560e7b0e46c0b65fb4f.png.webp" alt="product">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Apple Iphone 14ProMax</h3>
-                        <span class="product-stock">Đã bán 1000+</span>
-                        <p class="product-price">32.000.000 ₫</p>
-                    </div>
-                    <div class="product-ship">
-                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/bf/5b/b9/f54345d674f86ab1bc3f8a68e91ee049.png" alt="icon-astra"><span>Giao siêu tốc 2H</span>
-                    </div>
-                </a>
-                <a href="#" class="  product-col">
-                    <div class="product-img">
-                        <img src="https://salt.tikicdn.com/cache/280x280/ts/product/f5/52/80/675e31a670afc560e7b0e46c0b65fb4f.png.webp" alt="product">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-name">Apple Iphone 14ProMax</h3>
-                        <span class="product-stock">Đã bán 1000+</span>
-                        <p class="product-price">32.000.000 ₫</p>
-                    </div>
-                    <div class="product-ship">
-                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/bf/5b/b9/f54345d674f86ab1bc3f8a68e91ee049.png" alt="icon-astra"><span>Giao siêu tốc 2H</span>
-                    </div>
-                </a>
+
+                <?php endif ?>
             </div>
             <!-- LoadMore -->
             <div class="mt-5 d-flex justify-content-center">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" href="javascript:void(0);" aria-label="Previous" onclick="updateParams('page', <?= $page - 1 ?>)" <?= $page > 1 ? '' : 'style="pointer-events: none; cursor: default;"' ?>>
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                        <?php for ($index = $startPage; $index <= $endPage; $index++) : ?>
+                            <li class="page-item" aria-current="page">
+                                <a class="page-link <?= $index == $page ? 'active' : '' ?>" href="javascript:void(0);" onclick="updateParams('page', <?= $index ?>)"><?= $index ?></a>
+                            </li>
+                        <?php endfor ?>
+
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" href="javascript:void(0);" aria-label="Next" onclick="updateParams('page', <?= $page + 1 ?>)" <?= $page < $totalPage ? '' : 'style="pointer-events: none; cursor: default;"' ?>>
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </ul>
+
                 </nav>
             </div>
         </div>

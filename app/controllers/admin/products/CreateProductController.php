@@ -72,7 +72,7 @@ class CreateProductController extends Controller
             $createStatus = $this->product->createProduct($dataInsert);
             if ($createStatus) {
                 Session::flash('toast', toast('Tạo sản phẩm thành công', 'success'));
-                Response::redirect('admin');
+                Response::redirect('admin/san-pham');
             } else {
                 Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
             }

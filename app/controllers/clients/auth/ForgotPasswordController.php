@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
                         Response::setMessage('Vui lòng kiểm tra email để tiến hành đặt lại mật khẩu!', 'success');
                         Session::data('email', $email);
                         Session::flash('toast', toast('Gửi yêu cầu thành công!', 'success'));
-                        Response::redirect('gui-lai-yeu-cau-quen-mat-khau');
+                        Response::redirect('dang-nhap');
                     } else {
                         Response::setMessage('Hệ thống đang gặp lỗi, vui lòng thử lại sau!', 'danger');
                     }

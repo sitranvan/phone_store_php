@@ -9,13 +9,14 @@
             </a>
         </ul>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarSupportedContent">
-            <form class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mt-lg-0 " role="search" style="flex-basis: 50%;">
+            <form id="searchForm" class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mt-lg-0 " role="search" style="flex-basis: 50%;">
                 <div class="position-absolute top-50 translate-middle-y text-secondary" style="padding: 0 20px;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input class="form-control py-2 ps-5  w-100 text-secondary fs-6" type="search" placeholder="Tìm kiểm sản phẩm..." aria-label="Search">
-                <button class="btn border-start position-absolute end-0 h-100 text-primary" type="submit">Tìm
-                    kiếm</button>
+                <input style="padding-right: 100px;" name="search" class="form-control py-2 ps-5 w-100 text-secondary fs-6" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                <button class="btn border-start position-absolute end-0 h-100 text-primary" type="button" onclick="updateSearchParams()">
+                    Tìm kiếm
+                </button>
             </form>
             <ul class="navbar-nav ms-lg-5 mb-2 mb-lg-0 gap-lg-3 ">
                 <?php if (!empty(App\Classes\Login::loginUser())) : ?>

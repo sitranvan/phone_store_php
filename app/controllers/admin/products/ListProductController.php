@@ -40,13 +40,10 @@ class ListProductController extends Controller
         }
 
 
-
-
         $allProduct = $this->product->getAllProduct($search, $active, $category, $brand, $sort, $page);
 
 
         $totalPage = count($allProduct);
-
 
         $this->data["title"] = "Danh sách sản phẩm";
         $this->data['view'] = $this->view(_ADMIN, 'products/index');

@@ -100,7 +100,9 @@
                     </tr>
                 <?php endforeach;
             else : ?>
-
+                <tr class="text-center">
+                    <td class="py-4 " colspan="7">Chưa có sản phẩm nào</td>
+                </tr>
             <?php endif ?>
         </tbody>
     </table>

@@ -3,7 +3,7 @@
         'name' => 'sitranvan/mvc_autoload',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '26bce73c4c2cee8cad18479faf4344e5b28db96b',
+        'reference' => 'a351614a07479e688f362c3797a4a2941b0399eb',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'sitranvan/mvc_autoload' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '26bce73c4c2cee8cad18479faf4344e5b28db96b',
+            'reference' => 'a351614a07479e688f362c3797a4a2941b0399eb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

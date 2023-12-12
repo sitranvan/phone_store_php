@@ -1,5 +1,6 @@
 <?php
 
+use App\Classes\Validate;
 use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Response;
@@ -32,6 +33,8 @@ class CreateProductController extends Controller
         $this->data['forward']['allCategory'] = $allCategory;
         $this->data['forward']['msg'] = Session::flash('msg');
         $this->data['forward']['msg_type'] = Session::flash('msg_type');
+        $this->data['forward']['errors'] = Session::flash('errors');
+        $this->data['forward']['old'] = Session::flash('old');
         $this->data['view'] = $this->view(_ADMIN, 'products/create');
 
         return $this->layout("admin_layout", $this->data);
@@ -39,8 +42,15 @@ class CreateProductController extends Controller
     public function createProduct()
     {
         $request = new Request();
+        $validate = new Validate();
 
         if ($request->isPost()) {
+
+            $validate->productName($request->get('name'));
+            $validate->productPrice($request->get('price'));
+            $validate->productFile($request->getFile('photo')['name']);
+        }
+        if (empty($validate->getErrors())) {
             // Xử lý upload hình ảnh
             $fileName = $request->getFile('photo')['name'];
             $tmpFileName = $request->getFile('photo')['tmp_name'];
@@ -66,6 +76,11 @@ class CreateProductController extends Controller
             } else {
                 Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
             }
+        } else {
+            Response::setMessage('Vui lòng kiêm tra lại thông tin nhập vào');
+            Session::flash('old', $request->getAll());
+            Session::flash('errors', $validate->getErrors());
         }
+        Response::redirect('admin/them-san-pham');
     }
 }

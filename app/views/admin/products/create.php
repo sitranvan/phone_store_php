@@ -5,11 +5,14 @@
         <div class="col-lg-6 col-md-12 d-flex flex-column gap-3">
             <div class="form-group">
                 <label class="form-label" for="">Tên sản phẩm</label>
-                <input name="name" type="text" class="form-control">
+                <input value="<?= old($old, 'name') ?>" name="name" type="text" class="form-control <?= isInvalid($errors, 'name') ?>">
+                <div class="invalid-feedback"><?= getMessageError($errors, 'name') ?></div>
             </div>
             <div class="form-group">
                 <label class="form-label" for="">Giá gốc</label>
-                <input name="price" type="text" class="form-control">
+                <input value="<?= old($old, 'price') ?>" name="price" type="text" class="form-control <?= isInvalid($errors, 'price') ?>">
+                <div class="invalid-feedback"><?= getMessageError($errors, 'price') ?></div>
+
             </div>
             <div class="form-group">
                 <label class="form-label" for="">Giá khuyến mãi</label>
@@ -18,11 +21,12 @@
             <div class="form-group">
                 <label class="form-label" for="">Hình ảnh</label>
                 <div class="custom-file-input">
-                    <input name="photo" type="file" id="fileInput" class="input-file" accept="image/*">
+                    <input name="photo" type="file" id="fileInput" class="form-control input-file <?= isInvalid($errors, 'price') ?>  accept=" image/*">
                     <label for="fileInput" id="fileInputLabel">
                         <span id="fileSelectedText">Choose a file</span>
                         <img id="selectedImage" src="#" alt="Selected Image">
                     </label>
+                    <div class="invalid-feedback"><?= getMessageError($errors, 'photo') ?></div>
                 </div>
             </div>
         </div>
@@ -30,8 +34,9 @@
             <div class="form-group">
                 <label class="form-label" for="categories">Danh mục</label>
                 <select class="form-select" name="category_id" id="">
+
                     <?php foreach ($allCategory as $key => $category) : ?>
-                        <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <option <?= (isset($old['category_id']) && $old['category_id']) == $category['id'] ? 'selected' : '' ?> value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
@@ -39,15 +44,15 @@
                 <label class="form-label" for="brands">Thương hiệu</label>
                 <select class="form-select" name="brand_id" id="">
                     <?php foreach ($allBrand as $key => $brand) : ?>
-                        <option value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
+                        <option <?= (isset($old['brand_id']) && $old['brand_id']) == $brand['id'] ? 'selected' : '' ?> value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label" for="Danh mục">Trạng thái</label>
                 <select class="form-select" name="active" id="">
-                    <option value="0">Chưa kích hoạt</option>
-                    <option value="1">Kích hoạt</option>
+                    <option <?= (isset($old['active']) && $old['active']) == 0 ? 'selected' : '' ?> value="0">Chưa kích hoạt</option>
+                    <option <?= (isset($old['active']) && $old['active']) == 1 ? 'selected' : '' ?> value="1">Kích hoạt</option>
                 </select>
             </div>
         </div>
@@ -70,3 +75,5 @@
 
     </div>
 </form>
+
+<?php

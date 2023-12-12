@@ -117,6 +117,26 @@ class Validate
         }
     }
 
+    // function required
+    public function productName($name = '')
+    {
+        if (empty(trim($name))) {
+            $this->errors['name'] = 'Tên sản phẩm bắt buộc phải nhập';
+        }
+    }
+    public function productPrice($price = '')
+    {
+        if (empty(trim($price))) {
+            $this->errors['price'] = 'Giá sản phẩm bắt buộc phải nhập';
+        }
+    }
+    public function productFile($photo = '')
+    {
+        if (empty(trim($photo))) {
+            $this->errors['photo'] = 'Hình ảnh bắt buộc phải chọn';
+        }
+    }
+
     public function getErrors()
     {
         return $this->errors;

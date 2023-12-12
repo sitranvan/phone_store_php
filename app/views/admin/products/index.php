@@ -88,10 +88,11 @@
                             <?php endif ?>
                         </td>
                         <td>
-                            <a onclick="confirmDelete(event)" class="btn btn-sm btn-danger confirm-delete" href="<?= route('admin/xoa-san-pham/' . $product['id']) ?>">
+                            <a onclick="confirmDelete(event, <?= $product['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $product['id'] ?>" href="<?= route('admin/xoa-san-pham/' . $product['id']) ?>">
                                 <i class='bx bxs-trash-alt'></i>
                                 Xóa
                             </a>
+
                             <a class="btn btn-sm btn-success" href="<?= route('admin/sua-san-pham/' . $product['id']) ?>">
                                 <i class='bx bx-edit'></i>
                                 Sửa

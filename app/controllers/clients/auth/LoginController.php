@@ -65,7 +65,7 @@ class LoginController extends Controller
                         $this->saveSessionOrToken($token);
                         // điều hướng user->home, admin->admin dashboard
                         if ($insertStatusUser) {
-                            $this->redirectPage($insertStatusUser,);
+                            $this->redirectPage($insertStatusUser, $userLogin['role_id']);
                         }
                     } else {
                         Response::setMessage('Mật khẩu chưa chính xác', 'warning');
@@ -109,11 +109,17 @@ class LoginController extends Controller
         }
     }
 
-    public function redirectPage($insertStatusUser)
+    public function redirectPage($insertStatusUser, $roleId)
     {
         if ($insertStatusUser) {
-            Session::flash('toast', toast('Đăng nhập thành công!', 'success'));
-            Response::redirect('');
+            // 1-admin, 2-customer
+            if ($roleId == 1) {
+                Session::flash('toast', toast('Đăng nhập thành công!', 'success'));
+                Response::redirect('admin');
+            } else {
+                Session::flash('toast', toast('Đăng nhập thành công!', 'success'));
+                Response::redirect('');
+            }
         } else {
             Response::setMessage('Hệ thống đang gặp sự cố, vui lòng thử lại sau', 'danger');
         }

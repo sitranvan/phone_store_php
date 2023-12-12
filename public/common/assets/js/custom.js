@@ -33,3 +33,30 @@ function confirmDelete(event) {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.getElementById("fileInput");
+  const fileInputLabel = document.getElementById("fileInputLabel");
+  const fileSelectedText = document.getElementById("fileSelectedText");
+  const selectedImage = document.getElementById("selectedImage");
+
+  fileInput.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (file) {
+      fileSelectedText.innerText = file.name;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        selectedImage.src = e.target.result;
+        selectedImage.style.display = "block";
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      fileSelectedText.innerText = "Choose a file";
+      selectedImage.src = "#";
+      selectedImage.style.display = "none";
+    }
+  });
+});

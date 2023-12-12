@@ -27,7 +27,7 @@
                             </div>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Thông tin</a></li>
-                                <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+                                <li><a class="dropdown-item" href="<?= route('thay-doi-mat-khau') ?>">Đổi mật khẩu</a></li>
                                 <li><a class="dropdown-item" href="<?= route('dang-xuat') ?>">Đăng xuất</a></li>
                             </ul>
                         </div>

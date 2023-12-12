@@ -23,6 +23,13 @@ $authRoutes = [
 $adminRoutes = [
     'className' => AdminMiddleware::class,
     'routes' => [
-        'admin'
+        'admin',
+        'admin/san-pham',
+        'admin/them-san-pham',
+        'admin/submit-add-product',
+        'admin/sua-san-pham/(.+)',
+        'admin/submit-edit-product',
+        'admin/xoa-san-pham/(.+)',
+
     ],
 ];

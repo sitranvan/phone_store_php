@@ -12,4 +12,13 @@ class Category extends Model
     {
         return $this->getAll($this->table);
     }
+
+    public function createCategory($dataInsert)
+    {
+        return $this->insert($this->table, $dataInsert);
+    }
+    public function checkExists($condition = '')
+    {
+        return $this->exists($this->table, $condition);
+    }
 }

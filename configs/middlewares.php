@@ -30,6 +30,7 @@ $adminRoutes = [
         'admin/sua-san-pham/(.+)',
         'admin/submit-edit-product',
         'admin/xoa-san-pham/(.+)',
+        'admin/danh-muc',
 
     ],
 ];

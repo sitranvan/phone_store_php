@@ -12,10 +12,10 @@
 
 
         <li class="nav-item ">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav-product" data-bs-toggle="collapse" href="#" aria-expanded="false">
                 <i class="bi bi-journal-text"></i><span>Quản lý sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="forms-nav" class="nav-content collapsed" data-bs-parent="#sidebar-nav" style="">
+            <ul id="forms-nav-product" class="nav-content collapsed" data-bs-parent="#sidebar-nav" style="">
                 <li>
                     <a href="<?= route('admin/san-pham') ?>" class="<?= _PATH_INFO == 'admin/san-pham' ? 'active' : '' ?>">
                         <i class="bi bi-circle"></i><span>Danh sách</span>
@@ -24,6 +24,25 @@
                 <li>
                     <a href="<?= route('admin/them-san-pham') ?>" class="<?= _PATH_INFO == 'admin/them-san-pham' ? 'active' : '' ?>">
                         <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav-category" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                <i class="bi bi-journal-text"></i><span>Quản lý danh mục</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav-category" class="nav-content collapsed" data-bs-parent="#sidebar-nav" style="">
+                <li>
+                    <a href="<?= route('admin/danh-muc') ?>" class="<?= _PATH_INFO == 'admin/danh-muc' ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Danh sách</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= route('admin/them-danh-muc') ?>" class="<?= _PATH_INFO == 'admin/them-danh-muc' ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Thêm danh mục</span>
                     </a>
                 </li>
 

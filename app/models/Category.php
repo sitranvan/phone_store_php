@@ -8,9 +8,22 @@ class Category extends Model
 {
     private $table = 'categories';
 
-    public function getAllCategory()
+    public function getAllCategory($search = '', $page = 1)
     {
-        return $this->getAll($this->table);
+        $condition = " WHERE 1";
+
+        if (!empty($search)) {
+            $condition .= " AND name LIKE '%$search%'";
+        }
+        // perPage = 8
+        $perPage = 8;
+
+        // Calculate offset for pagination
+        $offset = ($page - 1) * $perPage;
+
+        // Adding LIMIT/OFFSET clauses for pagination
+        $condition .= " LIMIT $perPage OFFSET $offset";
+        return $this->getAll($this->table, $condition);
     }
 
     public function createCategory($dataInsert)

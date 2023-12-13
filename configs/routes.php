@@ -13,6 +13,8 @@ $routes = [
         'admin/danh-muc' => 'admin/categories/ListCategoryController',
         'admin/them-danh-muc' => 'admin/categories/CreateCategoryController',
         'admin/submit-add-category' => 'admin/categories/CreateCategoryController/createCategory',
+        'admin/sua-danh-muc/(.+)' => 'admin/categories/EditCategoryController/index/$1',
+        'admin/submit-edit-category' => 'admin/categories/EditCategoryController/updateCategory',
     ],
     // Clients route
     _CLENTS => [

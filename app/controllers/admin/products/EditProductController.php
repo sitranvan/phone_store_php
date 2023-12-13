@@ -53,32 +53,32 @@ class EditProductController extends Controller
             $validate->productFile($request->getFile('photo')['name']);
         }
         if (empty($validate->getErrors())) {
-            // $fileName = $request->getFile('photo')['name'];
-            // $tmpFileName = $request->getFile('photo')['tmp_name'];
-            // $fileName = time() . '_' . $fileName;
-            // $targetFilePath = 'app/uploads/' . $fileName;
-            // move_uploaded_file($tmpFileName, $targetFilePath);
+            $fileName = $request->getFile('photo')['name'];
+            $tmpFileName = $request->getFile('photo')['tmp_name'];
+            $fileName = time() . '_' . $fileName;
+            $targetFilePath = 'app/uploads/' . $fileName;
+            move_uploaded_file($tmpFileName, $targetFilePath);
 
-            // $dataUpdate = [
-            //     'name' => $request->get('name'),
-            //     'price' => $request->get('price'),
-            //     'price_promotion' => $request->get('price_promotion'),
-            //     'description' => $request->get('description'),
-            //     'photo' => $fileName,
-            //     'active' => $request->get('active'),
-            //     'category_id' => $request->get('category_id'),
-            //     'brand_id' => $request->get('brand_id'),
-            //     'updated_at' => date('Y-m-d H:i:s'),
-            // ];
+            $dataUpdate = [
+                'name' => $request->get('name'),
+                'price' => $request->get('price'),
+                'price_promotion' => $request->get('price_promotion'),
+                'description' => $request->get('description'),
+                'photo' => $fileName,
+                'active' => $request->get('active'),
+                'category_id' => $request->get('category_id'),
+                'brand_id' => $request->get('brand_id'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
 
 
-            // $updateStatus = $this->product->updateProduct($dataUpdate, $id);
-            // if ($updateStatus) {
-            //     Session::flash('toast', toast('Cập nhật sản phẩm thành công', 'success'));
-            //     Response::redirect('admin/san-pham');
-            // } else {
-            //     Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
-            // }
+            $updateStatus = $this->product->updateProduct($dataUpdate, $id);
+            if ($updateStatus) {
+                Session::flash('toast', toast('Cập nhật sản phẩm thành công', 'success'));
+                Response::redirect('admin/san-pham');
+            } else {
+                Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
+            }
         } else {
             Response::setMessage('Vui lòng kiêm tra lại thông tin nhập vào');
             Session::flash('old', $request->getAll());

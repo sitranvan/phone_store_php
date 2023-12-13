@@ -41,7 +41,7 @@
                                 Xóa
                             </a>
 
-                            <a class="btn btn-sm btn-success" href="<?= route('admin/sua-san-pham/' . $category['id']) ?>">
+                            <a class="btn btn-sm btn-success" href="<?= route('admin/sua-danh-muc/' . $category['id']) ?>">
                                 <i class='bx bx-edit'></i>
                                 Sửa
                             </a>

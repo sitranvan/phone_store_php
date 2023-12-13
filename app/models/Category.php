@@ -34,4 +34,13 @@ class Category extends Model
     {
         return $this->exists($this->table, $condition);
     }
+    public function getCategory($id)
+    {
+        return $this->get($this->table, "WHERE id=$id");
+    }
+    public function updateCategory($dataUpdate, $id)
+    {
+        $condition = "id=$id";
+        return $this->update($this->table, $dataUpdate, $condition);
+    }
 }

@@ -19,7 +19,7 @@ class EditCategoryController extends Controller
     {
         Session::flash('id', $id);
         $category = $this->category->getCategory($id);
-        $this->data["title"] = "Thêm danh danh mục";
+        $this->data["title"] = "Thêm danh mục";
         $this->data['forward']['msg'] = Session::flash('msg');
         $this->data['forward']['category'] = $category;
         $this->data['forward']['msg_type'] = Session::flash('msg_type');

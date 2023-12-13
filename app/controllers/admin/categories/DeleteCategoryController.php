@@ -3,23 +3,22 @@
 use App\Core\Controller;
 use App\Core\Response;
 use App\Core\Session;
-use App\Model\Product;
+use App\Model\Category;
 
-class DeleteProductController extends Controller
+class DeleteCategoryController extends Controller
 {
     private $data = [];
-    private $product;
+    private $category;
     public function __construct()
     {
-        $this->product = new Product();
+        $this->category = new Category();
     }
     public function index($id)
     {
-
-        $deleteStatus = $this->product->deleteProduct($id);
+        $deleteStatus = $this->category->deleteCategory($id);
         if ($deleteStatus) {
-            Session::flash('toast', toast('Xóa sản phẩm thành công', 'success'));
-            Response::redirect('admin/san-pham');
+            Session::flash('toast', toast('Xóa danh mục thành công', 'success'));
+            Response::redirect('admin/danh-muc');
         } else {
             Response::setMessage('Hệ thống đang gặp lỗi vui lòng thử lại sau', 'danger');
         }

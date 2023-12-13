@@ -9,6 +9,13 @@ $routes = [
         'admin/sua-san-pham/(.+)' => 'admin/products/EditProductController/index/$1',
         'admin/submit-edit-product' => 'admin/products/EditProductController/updateProduct',
         'admin/xoa-san-pham/(.+)' => 'admin/products/DeleteProductController/index/$1',
+
+        'admin/danh-muc' => 'admin/categories/ListCategoryController',
+        'admin/them-danh-muc' => 'admin/categories/CreateCategoryController',
+        'admin/submit-add-category' => 'admin/categories/CreateCategoryController/createCategory',
+        'admin/sua-danh-muc/(.+)' => 'admin/categories/EditCategoryController/index/$1',
+        'admin/submit-edit-category' => 'admin/categories/EditCategoryController/updateCategory',
+        'admin/xoa-danh-muc/(.+)' => 'admin/categories/DeleteCategoryController/index/$1',
     ],
     // Clients route
     _CLENTS => [

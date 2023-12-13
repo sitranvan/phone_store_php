@@ -3,15 +3,18 @@
 namespace App\Classes;
 
 use App\Core\DataBase;
+use App\Model\Category;
 use App\Model\User;
 
 class Validate
 {
     private $errors;
     private $user;
+    private $category;
     public function __construct()
     {
         $this->user = new User();
+        $this->category = new Category();
         $this->errors = [];
     }
 
@@ -134,6 +137,21 @@ class Validate
     {
         if (empty(trim($photo))) {
             $this->errors['photo'] = 'Hình ảnh bắt buộc phải chọn';
+        }
+    }
+
+    public function categoryName($name = '', $unique = false)
+    {
+        if (empty(trim($name))) {
+            $this->errors['name'] = 'Tên danh mục bắt buộc phải nhập';
+        } else {
+            if ($unique == true) {
+                $condition = "name='$name'";
+                $checkCategoryName = $this->category->checkExists($condition);
+                if ($checkCategoryName) {
+                    $this->errors['name'] = 'Tên danh mục đã tồn tại trong hệ thống';
+                }
+            }
         }
     }
 

@@ -22,7 +22,7 @@ class Category extends Model
         $offset = ($page - 1) * $perPage;
 
         // Adding LIMIT/OFFSET clauses for pagination
-        $condition .= " LIMIT $perPage OFFSET $offset";
+        $condition .= " ORDER BY created_at DESC LIMIT $perPage OFFSET $offset";
         return $this->getAll($this->table, $condition);
     }
 
@@ -42,5 +42,9 @@ class Category extends Model
     {
         $condition = "id=$id";
         return $this->update($this->table, $dataUpdate, $condition);
+    }
+    public function deleteCategory($id)
+    {
+        return $this->delete($this->table, "id=$id");
     }
 }

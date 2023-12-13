@@ -15,6 +15,7 @@ $routes = [
         'admin/submit-add-category' => 'admin/categories/CreateCategoryController/createCategory',
         'admin/sua-danh-muc/(.+)' => 'admin/categories/EditCategoryController/index/$1',
         'admin/submit-edit-category' => 'admin/categories/EditCategoryController/updateCategory',
+        'admin/xoa-danh-muc/(.+)' => 'admin/categories/DeleteCategoryController/index/$1',
     ],
     // Clients route
     _CLENTS => [

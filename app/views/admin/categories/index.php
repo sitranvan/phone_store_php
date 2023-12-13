@@ -36,7 +36,7 @@
                         <td><?= $category['name'] ?></td>
                         <td><?= $category['created_at'] ?></td>
                         <td>
-                            <a onclick="confirmDelete(event, <?= $category['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $category['id'] ?>" href="<?= route('admin/xoa-san-pham/' . $category['id']) ?>">
+                            <a onclick="confirmDelete(event, <?= $category['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $category['id'] ?>" href="<?= route('admin/xoa-danh-muc/' . $category['id']) ?>">
                                 <i class='bx bxs-trash-alt'></i>
                                 Xóa
                             </a>

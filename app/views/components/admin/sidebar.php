@@ -49,6 +49,25 @@
             </ul>
         </li>
 
+        <li class="nav-item ">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav-brand" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                <i class="bi bi-journal-text"></i><span>Quản lý thương hiệu</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav-brand" class="nav-content collapsed" data-bs-parent="#sidebar-nav" style="">
+                <li>
+                    <a href="<?= route('admin/thuong-hieu') ?>" class="<?= _PATH_INFO == 'admin/thuong-hieu' ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Danh sách</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= route('admin/them-thuong-hieu') ?>" class="<?= _PATH_INFO == 'admin/them-thuong-hieu' ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Thêm thương hiệu</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">

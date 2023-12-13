@@ -1,7 +1,7 @@
 <main>
     <div class="d-flex align-items-center justify-content-between">
         <h2>Danh sách sản phẩm</h2>
-        <a class="btn btn-success" href="">
+        <a class="btn btn-success" href="<?= route('admin/them-san-pham') ?>">
             Tạo sản phẩm
             <i class='bx bx-plus fs-6'></i>
         </a>

@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use App\Core\DataBase;
+use App\Model\Brand;
 use App\Model\Category;
 use App\Model\User;
 
@@ -11,10 +12,12 @@ class Validate
     private $errors;
     private $user;
     private $category;
+    private $brand;
     public function __construct()
     {
         $this->user = new User();
         $this->category = new Category();
+        $this->brand = new Brand();
         $this->errors = [];
     }
 
@@ -154,6 +157,22 @@ class Validate
             }
         }
     }
+
+    public function brandName($name = '', $unique = false)
+    {
+        if (empty(trim($name))) {
+            $this->errors['name'] = 'Tên thương hiệu bắt buộc phải nhập';
+        } else {
+            if ($unique == true) {
+                $condition = "name='$name'";
+                $checkBrandName = $this->brand->checkExists($condition);
+                if ($checkBrandName) {
+                    $this->errors['name'] = 'Tên thương hiệu đã tồn tại trong hệ thống';
+                }
+            }
+        }
+    }
+
 
     public function getErrors()
     {

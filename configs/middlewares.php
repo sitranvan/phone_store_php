@@ -33,6 +33,12 @@ $adminRoutes = [
         'admin/danh-muc',
         'admin/sua-danh-muc/(.+)',
         'admin/submit-edit-category',
-
+        'admin/xoa-danh-muc/(.+)',
+        'admin/thuong-hieu',
+        'admin/them-thuong-hieu',
+        'admin/submit-add-brand',
+        'admin/sua-thuong-hieu/(.+)',
+        'admin/submit-edit-brand',
+        'admin/xoa-thuong-hieu/(.+)'
     ],
 ];

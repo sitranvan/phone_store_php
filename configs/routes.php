@@ -10,12 +10,19 @@ $routes = [
         'admin/submit-edit-product' => 'admin/products/EditProductController/updateProduct',
         'admin/xoa-san-pham/(.+)' => 'admin/products/DeleteProductController/index/$1',
 
-        'admin/danh-muc' => 'admin/categories/ListCategoryController',
+        'admin/danh-muc' => 'admin/brands/ListCategoryController',
         'admin/them-danh-muc' => 'admin/categories/CreateCategoryController',
         'admin/submit-add-category' => 'admin/categories/CreateCategoryController/createCategory',
         'admin/sua-danh-muc/(.+)' => 'admin/categories/EditCategoryController/index/$1',
         'admin/submit-edit-category' => 'admin/categories/EditCategoryController/updateCategory',
         'admin/xoa-danh-muc/(.+)' => 'admin/categories/DeleteCategoryController/index/$1',
+
+        'admin/thuong-hieu' => 'admin/brands/ListBrandController',
+        'admin/them-thuong-hieu' => 'admin/brands/CreateBrandController',
+        'admin/submit-add-brand' => 'admin/brands/CreateBrandController/createBrand',
+        'admin/sua-thuong-hieu/(.+)' => 'admin/brands/EditBrandController/index/$1',
+        'admin/submit-edit-brand' => 'admin/brands/EditBrandController/updateBrand',
+        'admin/xoa-thuong-hieu/(.+)' => 'admin/brands/DeleteBrandController/index/$1',
     ],
     // Clients route
     _CLENTS => [

@@ -41,13 +41,8 @@ $routes = [
         'submit-forgot-password' => 'clients/auth/ForgotPasswordController/forgotPassword',
         'khoi-phuc-mat-khau' => 'clients/auth/ResetPasswordController',
         'submit-reset-password' => 'clients/auth/ResetPasswordController/resetPassword',
-        'danh-muc' => 'clients/CategoryController',
-        've-chung-toi' => 'clients/AboutController',
-        'tin-moi-nhat' => 'clients/LatestNewsController',
-        'lien-he' => 'clients/ContactController',
-        'phan-tu' => 'clients/ElementController',
-        'blog' => 'clients/BlogController',
-        'chi-tiet' => 'clients/HomeController/detail',
+        'chi-tiet/(.+)' => 'clients/products/ProductDetailController/index/$1',
+
 
     ]
 ];

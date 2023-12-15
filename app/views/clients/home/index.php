@@ -94,7 +94,7 @@
 
                 <?php if (!empty($allProduct)) :
                     foreach ($allProduct as $product) : ?>
-                        <a href="#" class=" product-col">
+                        <a href="<?= route('chi-tiet/' . $product['product_id']) ?>" class=" product-col">
                             <div class="product-img">
                                 <img src="<?= getImage($product['photo']) ?>" alt="<?= $product['product_name'] ?>">
                             </div>

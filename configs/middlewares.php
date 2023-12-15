@@ -9,7 +9,7 @@ use App\Middlewares\GuestMiddleware;
 $guestRoutes = [
     'className' => GuestMiddleware::class,
     'routes' => [
-        '/', 'dang-nhap', 'dang-ky', 'quen-mat-khau', ''
+        '/', 'dang-nhap', 'dang-ky', 'quen-mat-khau', 'chi-tiet/(.+)',
     ],
 ];
 

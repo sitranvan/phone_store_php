@@ -76,7 +76,7 @@ class Product extends Model
 
     public function getProduct($id)
     {
-        $sql = 'SELECT products.*, brands.*, products.name AS product_name, brands.name AS brand_name, products.id AS product_id, brands.id AS brand_id FROM ' . $this->table . ' JOIN brands ON products.brand_id = brands.id WHERE products.id = ' . $id . '';
+        $sql = 'SELECT products.*, brands.*,products.name AS product_name, brands.name AS brand_name, products.id AS product_id, brands.id AS brand_id FROM ' . $this->table . ' JOIN brands ON products.brand_id = brands.id WHERE products.id = ' . $id . '';
         return $this->getBySql($sql);
     }
 

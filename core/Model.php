@@ -39,4 +39,14 @@ class Model extends DataBase
     {
         return $this->existsDB("SELECT id FROM $table WHERE $condition");
     }
+
+    public function getAllBySql($sql = '')
+    {
+        return $this->fetchAllDB($sql);
+    }
+
+    public function getBySql($sql = '')
+    {
+        return $this->fetchDB($sql);
+    }
 }

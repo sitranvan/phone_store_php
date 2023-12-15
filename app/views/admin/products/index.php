@@ -74,7 +74,7 @@
             ?>
                     <tr>
                         <td><?= $key + 1 ?></td>
-                        <td><?= $product['name'] ?></td>
+                        <td><?= $product['product_name'] ?></td>
                         <td>
                             <img width="60" height="60" src="<?= getImage($product['photo']) ?>" alt="<?= $product['name'] ?>">
                         </td>
@@ -88,12 +88,12 @@
                             <?php endif ?>
                         </td>
                         <td>
-                            <a onclick="confirmDelete(event, <?= $product['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $product['id'] ?>" href="<?= route('admin/xoa-san-pham/' . $product['id']) ?>">
+                            <a onclick="confirmDelete(event, <?= $product['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $product['id'] ?>" href="<?= route('admin/xoa-san-pham/' . $product['product_id']) ?>">
                                 <i class='bx bxs-trash-alt'></i>
                                 Xóa
                             </a>
 
-                            <a class="btn btn-sm btn-success" href="<?= route('admin/sua-san-pham/' . $product['id']) ?>">
+                            <a class="btn btn-sm btn-success" href="<?= route('admin/sua-san-pham/' . $product['product_id']) ?>">
                                 <i class='bx bx-edit'></i>
                                 Sửa
                             </a>

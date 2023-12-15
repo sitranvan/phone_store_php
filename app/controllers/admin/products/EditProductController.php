@@ -28,6 +28,8 @@ class EditProductController extends Controller
         $allCategory = $this->category->getAllCategory();
         $product = $this->product->getProduct($id);
 
+
+
         $this->data["title"] = "Sửa sản phẩm";
         $this->data['forward']['product'] = $product;
         $this->data['forward']['allBrand'] = $allBrand;
@@ -43,6 +45,7 @@ class EditProductController extends Controller
 
     public function updateProduct()
     {
+
         $id = Session::flash('id');
         $validate = new Validate();
         $request = new Request();

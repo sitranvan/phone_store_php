@@ -63,8 +63,8 @@
                 <li class="nav-item ms-4 filter-price">
                     <select class="form-select" id="sortByDropdown" onchange="updateSortBy(this.value)">
                         <option value="all" selected>Theo giá</option>
-                        <option value="asc">Từ thấp đến cao</option>
-                        <option value="desc">Từ cao đến thấp</option>
+                        <option <?= $allQuery['priceSort'] == 'asc' ? 'selected' : '' ?> value="asc">Từ thấp đến cao</option>
+                        <option <?= $allQuery['priceSort'] == 'desc' ? 'selected' : '' ?> value="desc">Từ cao đến thấp</option>
                     </select>
                 </li>
                 <!-- Category mobile -->
@@ -96,10 +96,10 @@
                     foreach ($allProduct as $product) : ?>
                         <a href="#" class=" product-col">
                             <div class="product-img">
-                                <img src="<?= getImage($product['photo']) ?>" alt="<?= $product['name'] ?>">
+                                <img src="<?= getImage($product['photo']) ?>" alt="<?= $product['product_name'] ?>">
                             </div>
                             <div class="product-content">
-                                <h3 style="height: 45px;" class="product-name"><?= $product['name'] ?></h3>
+                                <h3 style="height: 45px;" class="product-name"><?= $product['product_name'] ?></h3>
 
                                 <div class="d-flex align-items-center gap-1">
                                     <p class="product-price fs-6 fw-normal"><?= number_format($product['price']) ?>₫</p>
@@ -107,7 +107,7 @@
                                         <p style="font-size: 12px;" class="product-price text-decoration-line-through text-secondary mt-2 fw-normal"><?= number_format($product['price_promotion']) ?>₫</p>
                                     <?php endif ?>
                                 </div>
-                                <span class="product-stock">Đã bán 1000+</span>
+                                <span class="product-brand">Thương hiệu: <?= $product['brand_name'] ?></span>
                             </div>
 
                         </a>

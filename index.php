@@ -12,9 +12,10 @@ $webRoot = $protocol . $_SERVER['HTTP_HOST'];
 $folder = str_replace($_SERVER['DOCUMENT_ROOT'], '', _DIR_ROOT);
 $webRoot .= $folder;
 define('_WEB_ROOT', $webRoot);
-define('_PATH_INFO', ltrim($_SERVER['PATH_INFO'], '/'));
 
-echo _PATH_INFO;
+define('_PATH_INFO', ltrim(isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '', '/'));
+
+
 
 require_once 'vendor/autoload.php';
 require_once 'configs/loadConfigs.php';

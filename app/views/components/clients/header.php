@@ -9,7 +9,7 @@
             </a>
         </ul>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarSupportedContent">
-            <form id="searchForm" class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mt-lg-0 " role="search" style="flex-basis: 50%;">
+            <form id="searchForm" class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mb-0 mt-lg-0 " role="search" style="flex-basis: 50%;">
                 <div class="position-absolute top-50 translate-middle-y text-secondary" style="padding: 0 20px;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>

@@ -5,7 +5,7 @@
         <div class="col-lg-6 col-md-12 d-flex flex-column gap-3">
             <div class="form-group">
                 <label class="form-label" for="">Tên sản phẩm</label>
-                <input value="<?= $product['name'] ?? old($old, 'name') ?>" name="name" type="text" class="form-control <?= isInvalid($errors, 'name') ?>">
+                <input value="<?= $product['product_name'] ?? old($old, 'name') ?>" name="name" type="text" class="form-control <?= isInvalid($errors, 'name') ?>">
                 <div class="invalid-feedback"><?= getMessageError($errors, 'name') ?></div>
             </div>
             <div class="form-group">

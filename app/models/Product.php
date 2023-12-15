@@ -19,39 +19,33 @@ class Product extends Model
         $condition = "id=$id";
         return $this->update($this->table, $dataUpdate, $condition);
     }
-
     public function getAllProduct($search = '', $active = '', $category = '', $brand = '', $sort = 'desc', $page = 1, $priceSort = 'all')
     {
-        $condition = " WHERE 1";
+        // Initial conditions
+        $conditions = " WHERE 1";
 
+        // Add search condition
         if (!empty($search)) {
-            $condition .= " AND name LIKE '%$search%'";
+            $conditions .= " AND products.name LIKE '%$search%'";
         }
 
+        // Add active condition
         if ($active == 1 || $active == 0) {
-            $condition .= " AND active = '$active'";
+            $conditions .= " AND products.active = '$active'";
         }
 
+        // Add category condition
         if (!empty($category) && $category !== 'all') {
-            $condition .= " AND category_id = '$category'";
+            $conditions .= " AND products.category_id = '$category'";
         }
 
+        // Add brand condition
         if (!empty($brand) && $brand !== 'all') {
-            $condition .= " AND brand_id = '$brand'";
+            $conditions .= " AND products.brand_id = '$brand'";
         }
 
-        // Adding sorting condition for price if it's not 'all'
-        if ($priceSort !== 'all') {
-
-            if ($priceSort === 'asc' || $priceSort === 'desc') {
-                $condition .= " ORDER BY price $priceSort, created_at $sort";
-            } else {
-                $condition .= " ORDER BY created_at $sort";
-            }
-        } else {
-            // If priceSort is 'all', don't apply price sorting
-            $condition .= " ORDER BY created_at $sort";
-        }
+        // Join with 'brands' table
+        $joinCondition = " LEFT JOIN brands ON products.brand_id = brands.id";
 
         // perPage = 8
         $perPage = 8;
@@ -59,17 +53,33 @@ class Product extends Model
         // Calculate offset for pagination
         $offset = ($page - 1) * $perPage;
 
-        // Adding LIMIT/OFFSET clauses for pagination
-        $condition .= " LIMIT $perPage OFFSET $offset";
+        // Construct the SQL query
+        $query = "SELECT products.*, brands.*, products.id AS product_id, products.name AS product_name, brands.name AS brand_name, brands.id AS brand_id FROM products" . $joinCondition . $conditions;
+        // Adding sorting condition for price if it's not 'all'
+        if ($priceSort !== 'all') {
+            if ($priceSort === 'asc' || $priceSort === 'desc') {
+                $query .= " ORDER BY products.price $priceSort, products.created_at $sort";
+            } else {
+                $query .= " ORDER BY products.created_at $sort";
+            }
+        } else {
+            // If priceSort is 'all', don't apply price sorting
+            $query .= " ORDER BY products.created_at $sort";
+        }
 
-        return $this->getAll($this->table, $condition);
+        // Adding LIMIT/OFFSET clauses for pagination
+        $query .= " LIMIT $offset, $perPage";
+
+        return $this->getAllBySql($query);
     }
 
 
     public function getProduct($id)
     {
-        return $this->get($this->table, "WHERE id=$id");
+        $sql = 'SELECT products.*, brands.*, products.name AS product_name, brands.name AS brand_name, products.id AS product_id, brands.id AS brand_id FROM ' . $this->table . ' JOIN brands ON products.brand_id = brands.id WHERE products.id = ' . $id . '';
+        return $this->getBySql($sql);
     }
+
 
     public function deleteProduct($id)
     {

@@ -9,12 +9,12 @@
             </a>
         </ul>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarSupportedContent">
-            <form id="searchForm" class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mb-0 mt-lg-0 " role="search" style="flex-basis: 50%;">
+            <form action="<?= route('') ?>" id="searchForm" class="d-flex flex-grow-1 ms-lg-5 position-relative mt-3 mb-0 mt-lg-0 " role="search" style="flex-basis: 50%;">
                 <div class="position-absolute top-50 translate-middle-y text-secondary" style="padding: 0 20px;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <input style="padding-right: 100px;" name="search" class="form-control py-2 ps-5 w-100 text-secondary fs-6" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
-                <button class="btn border-start position-absolute end-0 h-100 text-primary" type="button" onclick="updateSearchParams()">
+                <button class="btn border-start position-absolute end-0 h-100 text-primary" type="submit" onclick="updateSearchParams()">
                     Tìm kiếm
                 </button>
             </form>

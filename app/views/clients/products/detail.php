@@ -1,18 +1,15 @@
 <div class="container-lg w-100">
-    <div class="d-flex align-items-center gap-2">
-        <a class="text-decoration-none" href="<?= route('') ?>">
-            <i class="fa-solid fa-house"></i>
-            Trang chủ
-        </a>
-        <p class="m-0">></p>
-        <p class="m-0"><?= $product['product_name'] ?></p>
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= route('') ?>">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $product['product_name'] ?></li>
+        </ol>
+    </nav>
     <div class="row mt-5">
         <div class="col-lg-4 bg-white pb-5 pt-2 rounded-start-2">
             <div class="">
                 <img src="<?= getImage($product['product_photo']) ?>" alt="" class="w-100 h-100 object-fit-cover">
             </div>
-
         </div>
         <div class="col-lg-6 bg-white py-4 pb-5">
             <div class="px-3 d-flex flex-column justify-content-between h-100">
@@ -46,7 +43,9 @@
                         <span><i class="fa-solid fa-minus"></i></span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary mt-4 py-2 w-50 mx-auto">Thêm vào giỏ hàng</a>
+                <!-- index.html -->
+                <a href="<?= route('them-gio-hang/' . $product['product_id']) ?>" class="btn btn-primary mt-4 py-2 w-50 mx-auto">Thêm vào giỏ hàng</a>
+
             </div>
         </div>
         <div class="col-lg-2 rounded-end-3 bg-white">

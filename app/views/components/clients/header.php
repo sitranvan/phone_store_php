@@ -68,10 +68,10 @@
                 <?php endif ?>
 
                 <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link text-primary fs-4 d-flex align-items-center gap-1" href="#">
+                    <a class="nav-link text-primary fs-4 d-flex align-items-center gap-1" href="<?= route('gio-hang') ?>">
                         <div class="position-relative">
                             <img src="https://salt.tikicdn.com/ts/upload/51/e2/92/8ca7e2cc5ede8c09e34d1beb50267f4f.png" alt="" width="24" height="24">
-                            <span class="quantity">1</span>
+                            <!-- <span class="quantity cart-quantity">0</span> -->
                         </div>
                         <span class="fs-6 text-secondary mt-1"> Giỏ hàng</span>
                     </a>

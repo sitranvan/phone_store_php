@@ -66,8 +66,8 @@
         </textarea>
         <script>
             CKEDITOR.replace("description", {
-                filebrowserBrowseUrl: "ckfinder/ckfinder.html",
-                filebrowserUploadUrl: "ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+                filebrowserBrowseUrl: "/phone_store_php_Si/public/admin/assets/vendor/ckfinder/ckfinder.html",
+                filebrowserUploadUrl: "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
             });
         </script>
     </div>

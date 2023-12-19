@@ -9,14 +9,17 @@ use App\Middlewares\GuestMiddleware;
 $guestRoutes = [
     'className' => GuestMiddleware::class,
     'routes' => [
-        '/', 'dang-nhap', 'dang-ky', 'quen-mat-khau', 'chi-tiet/(.+)',
+        '/', 'dang-nhap', 'dang-ky', 'quen-mat-khau', 'chi-tiet/(.+)',  'them-vao-gio-hang/(.+)',
     ],
 ];
 
 $authRoutes = [
     'className' => AuthMiddleware::class,
     'routes' => [
-        'lien-he', 'thay-doi-mat-khau'
+        'lien-he', 'thay-doi-mat-khau',
+
+        'gio-hang'
+
     ],
 ];
 

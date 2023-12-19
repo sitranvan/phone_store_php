@@ -43,6 +43,8 @@ $routes = [
         'submit-reset-password' => 'clients/auth/ResetPasswordController/resetPassword',
         'chi-tiet/(.+)' => 'clients/products/ProductDetailController/index/$1',
 
+        'gio-hang' => 'clients/carts/ListCartController',
 
+        'them-gio-hang/(.+)' => 'clients/carts/AddToCartController/index/$1',
     ]
 ];

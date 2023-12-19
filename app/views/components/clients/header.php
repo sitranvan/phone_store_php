@@ -4,8 +4,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="navbar-nav align-items-center flex-wrap me-lg-5 mb-2 mb-lg-0">
-            <a class="navbar-brand" href="#">
-                <img src="https://salt.tikicdn.com/ts/upload/e4/49/6c/270be9859abd5f5ec5071da65fab0a94.png" alt="" width="57" height="40" class="mb-lg-1">
+            <a class="navbar-brand fs-2 fw-bold text-primary" href="#">
+                STV
+                <span class="text-secondary fs-5">Phone
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+
+
+                </span>
+
             </a>
         </ul>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarSupportedContent">

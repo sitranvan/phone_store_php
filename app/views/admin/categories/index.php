@@ -1,8 +1,8 @@
 <main>
     <div class="d-flex align-items-center justify-content-between">
-        <h2>Danh sách danh mục</h2>
+        <h2>Danh sách loại điện thoại</h2>
         <a class="btn btn-success" href="<?= route('admin/them-danh-muc') ?>">
-            Tạo danh mục
+            Tạo loại điện thoại
             <i class='bx bx-plus fs-6'></i>
         </a>
     </div>

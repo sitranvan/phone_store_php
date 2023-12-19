@@ -2,7 +2,7 @@
     <div class="row mt-lg-3 home d-flex align-items-start">
         <!-- Aside -->
         <div class="col-lg-3 bg-white rounded-2 py-3 px-2 aside position-relative d-none d-lg-block">
-            <h2 class="ps-3 fs-6 text-uppercase fw-bold">Danh mục</h2>
+            <h2 class="ps-3 fs-6 text-uppercase fw-bold">Loại điện thoại</h2>
             <ul class="list-group list-group-flush px-1 category-list">
                 <?php foreach ($allCategory as $category) : ?>
                     <li class="">

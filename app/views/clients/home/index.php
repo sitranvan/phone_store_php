@@ -63,8 +63,8 @@
                 <li class="nav-item ms-4 filter-price">
                     <select class="form-select" id="sortByDropdown" onchange="updateSortBy(this.value)">
                         <option value="all" selected>Theo giá</option>
-                        <option <?= $allQuery['priceSort'] == 'asc' ? 'selected' : '' ?> value="asc">Từ thấp đến cao</option>
-                        <option <?= $allQuery['priceSort'] == 'desc' ? 'selected' : '' ?> value="desc">Từ cao đến thấp</option>
+                        <option <?= isset($allQuery['priceSort']) && $allQuery['priceSort'] == 'asc' ? 'selected' : '' ?> value="asc">Từ thấp đến cao</option>
+                        <option <?= isset($allQuery['priceSort']) && $allQuery['priceSort'] == 'desc' ? 'selected' : '' ?> value="desc">Từ cao đến thấp</option>
                     </select>
                 </li>
                 <!-- Category mobile -->

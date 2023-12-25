@@ -13,73 +13,74 @@
                     <p class="mb-5 text-center">
                         <i class="text-info font-weight-bold"><?= isset($cartProducts) ? count($cartProducts) : '0' ?></i> sản phẩm
                     </p>
-                    <?php if (isset($cartProducts)) : ?>
-                        <table id="shoppingCart" class="table table-condensed table-responsive">
-                            <thead>
-                                <tr>
-                                    <th style="width:60%">Sản phẩm</th>
-                                    <th style="width:12%">Giá</th>
-                                    <th style="width:10%; white-space: nowrap;">Số lượng</th>
-                                    <th style="width:16%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (!empty($cartProducts)) :
-                                    foreach ($cartProducts as $product) :  ?>
+                    <form action="<?= route('cap-nhat-so-luong') ?>" method="POST">
+                        <?php if (isset($cartProducts)) : ?>
+                            <table id="shoppingCart" class="table table-condensed table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="width:60%">Sản phẩm</th>
+                                        <th style="width:12%">Giá</th>
+                                        <th style="width:10%; white-space: nowrap;">Số lượng</th>
+                                        <th style="width:16%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($cartProducts)) :
+                                        foreach ($cartProducts as $product) :  ?>
 
-                                        <tr>
-                                            <td data-th="Product">
-                                                <div class="row cart-item">
-                                                    <div class="col-md-2 text-left">
-                                                        <img width="80" height="80" src="<?= getImage($product['photo']) ?>" alt="" class="rounded mb-2">
+                                            <tr>
+                                                <td data-th="Product">
+                                                    <div class="row cart-item">
+                                                        <div class="col-md-2 text-left">
+                                                            <img width="80" height="80" src="<?= getImage($product['photo']) ?>" alt="" class="rounded mb-2">
+                                                        </div>
+                                                        <div class="col-md-10 text-left mt-sm-2">
+                                                            <h5 class="fw-normal"><?= $product['name'] ?></h4>
+                                                                <p class="fs-7">Thương hiệu: <?= $product['brand_name'] ?> </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-10 text-left mt-sm-2">
-                                                        <h5 class="fw-normal"><?= $product['name'] ?></h4>
-                                                            <p class="fs-7">Thương hiệu: <?= $product['brand_name'] ?> </p>
+                                                </td>
+                                                <td width="20%" data-th="Price">
+                                                    <p class="text-secondary fs-5"><?= number_format($product['price']) . 'đ' ?></p>
+                                                </td>
+                                                <td data-th="Quantity">
+                                                    <input min="1" name="quantity[<?= $product['id'] ?>]" type="number" class="form-control text-center" value="<?= $product['quantity'] ?? 1 ?>">
+
+                                                </td>
+
+                                                <td class="actions" data-th="">
+                                                    <div class="text-right">
+
+                                                        <a onclick="confirmDelete(event, <?= $product['id'] ?>)" href="<?= route('xoa-san-pham-trong-gio-hang/' . $product['id']) ?>" class="btn btn-white border text-bg-dange bg-white btn-md mb-2 confirm-delete-<?= $product['id'] ?>" style="height: 37.5px;">
+                                                            <i class="fas fa-trash text-danger"></i>
+                                                        </a>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td width="20%" data-th="Price">
-                                                <p class="text-secondary fs-5"><?= number_format($product['price']) . 'đ' ?></p>
-                                            </td>
-                                            <td data-th="Quantity">
-                                                <input type="number" class="form-control  text-center" value="1">
-                                            </td>
-                                            <td class="actions" data-th="">
-                                                <div class="text-right">
+                                                </td>
+                                            </tr>
+                                        <?php endforeach;
+                                    else :  ?>
+                                        <h2>Giỏ hàng trống</h2>
+                                    <?php endif ?>
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-end">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-secondary my-2 text-uppercase">Tổng: <?= number_format($total) . 'đ' ?></h5>
 
-                                                    <button class="btn btn-white border text-bg-dange bg-white btn-md mb-2" style="height: 37.5px;">
-                                                        <i class="fas fa-trash text-danger"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm mt-2">Cập nhật lại giá</button>
 
-                                        </tr>
-
-                                    <?php endforeach;
-                                else :  ?>
-                                    <h2>Giỏ hàng trống</h2>
-                                <?php endif ?>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title text-secondary my-2 text-uppercase">Tổng: <?= number_format($total) . 'đ' ?></h5>
-
-
-                                    <div style="height: 0.1px; background-color:#d2d2d2;" class="w-100  my-4"></div>
-
-                                    <button class="btn btn-success w-100">Thanh toán</button>
+                                        <a href="<?= route('tao-don-hang') ?>" class="btn btn-success w-100 mt-4">Thanh toán</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php else : ?>
-                        <div class="d-flex flex-column align-items-center justify-content-center">
-                            <img height="250" src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg" alt="">
-                            <a href="<?= route('') ?>" class="mt-3 btn btn-primary">Tiếp tục mua sắm</a>
-                        </div>
-                    <?php endif ?>
+                        <?php else : ?>
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <img height="250" src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg" alt="">
+                                <a href="<?= route('') ?>" class="mt-3 btn btn-primary">Tiếp tục mua sắm</a>
+                            </div>
+                        <?php endif ?>
+                    </form>
                 </div>
             </div>
     </section>

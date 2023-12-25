@@ -19,4 +19,9 @@ class Helpers
 
         return $diffInMinutes;
     }
+    public static function formatDate($dateStr)
+    {
+        $dateTime = new DateTime($dateStr);
+        return $dateTime->format("d-m-Y");
+    }
 }

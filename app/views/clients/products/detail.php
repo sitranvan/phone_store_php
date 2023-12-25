@@ -32,19 +32,17 @@
                             Thương hiệu: <?= $product['brand_name'] ?>
                         </p>
                     </div>
-
-                </div>
-
-                <div class="border-top text-secondary">
-                    <p class="mt-4">Số lượng</p>
-                    <div class="text-secondary increase-quantity">
-                        <span><i class="fa-solid fa-plus"></i></span>
-                        <span>1</span>
-                        <span><i class="fa-solid fa-minus"></i></span>
+                    <div class="mt-3">
+                        <img width="32" height="16" src="https://salt.tikicdn.com/ts/upload/04/da/1e/eac32401f048ffd380e50dfeda2a1c55.png" alt="">
+                        <span class="text-secondary">Giao hàng siêu tốc</span>
                     </div>
+                    <a href="<?= route('them-gio-hang/' . $product['product_id']) ?>" class="btn btn-outline-success mt-4 py-2 px-4 mx-auto">Thêm vào giỏ hàng
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </a>
+                    <a href="<?= route('them-gio-hang/' . $product['product_id']) ?>" class="btn btn-success mt-4 py-2 px-4 mx-auto">Mua ngay
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <!-- index.html -->
-                <a href="<?= route('them-gio-hang/' . $product['product_id']) ?>" class="btn btn-primary mt-4 py-2 w-50 mx-auto">Thêm vào giỏ hàng</a>
 
             </div>
         </div>

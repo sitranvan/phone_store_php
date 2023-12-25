@@ -19,10 +19,11 @@ class Product extends Model
         $condition = "id=$id";
         return $this->update($this->table, $dataUpdate, $condition);
     }
-    public function getAllProduct($search = '', $active = '', $category = '', $brand = '', $sort = 'desc', $page = 1, $priceSort = 'all')
+    public function getAllProduct($search = '', $active = '', $category = '', $brand = '', $sort = 'desc', $page = 1, $priceSort = 'all', $initCondition = " WHERE 1", $perPage = 8)
     {
         // Initial conditions
-        $conditions = " WHERE 1";
+        $conditions =  $initCondition;
+
 
         // Add search condition
         if (!empty($search)) {
@@ -48,7 +49,7 @@ class Product extends Model
         $joinCondition = " LEFT JOIN brands ON products.brand_id = brands.id";
 
         // perPage = 8
-        $perPage = 8;
+
 
         // Calculate offset for pagination
         $offset = ($page - 1) * $perPage;

@@ -2,15 +2,16 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item">
-            <!-- Class active collapsed -->
-            <a class="nav-link <?= _PATH_INFO == 'admin' ? 'active' : 'collapsed' ?>" href="<?= route('admin') ?>">
-                <i class="bi bi-grid"></i>
-                <span>Tổng quan</span>
-            </a>
-        </li>
 
         <li class="nav-heading">QUẢN LÝ</li>
+
+
+        <li class="nav-item ">
+            <a class="nav-link <?= _PATH_INFO == 'admin/nguoi-dung' ? 'active' : 'collapsed' ?>" href="<?= route('admin/nguoi-dung') ?>">
+                <i class="ri-user-follow-line "></i>
+                <span class="mt-1">Người dùng</span>
+            </a>
+        </li>
 
         <li class="nav-item ">
             <a class="nav-link <?= _PATH_INFO == 'admin/san-pham' ? 'active' : 'collapsed' ?>" href="<?= route('admin/san-pham') ?>">

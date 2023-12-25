@@ -41,6 +41,7 @@ class AddToCartController extends Controller
                 'id' => $id, // Thêm ID sản phẩm vào mảng để kiểm tra trùng lặp
                 'name' => $product['product_name'],
                 'photo' => $product['photo'],
+                'quantity' => 1,
                 'price' => $product['price'],
                 'price_promotion' => $product['price_promotion'],
                 'brand_name' => $product['brand_name'],
@@ -57,9 +58,8 @@ class AddToCartController extends Controller
         } else {
             // Nếu sản phẩm đã tồn tại, bạn có thể thực hiện hành động nào đó, ví dụ: hiển thị thông báo
             Session::flash('toast', toast('Sản phẩm đã có trong giỏ hàng!', 'error'));
-            Response::redirect('chi-tiet/' . $product['product_id']);
         }
 
-        Response::redirect('');
+        Response::redirect('gio-hang');
     }
 }

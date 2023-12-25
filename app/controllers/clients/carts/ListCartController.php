@@ -15,7 +15,7 @@ class ListCartController extends Controller
         $cartProducts = Session::data('products');
         $total = 0;
         foreach ($cartProducts as $product) {
-            $total += $product['price'];
+            $total += $product['price'] * $product['quantity'];
         }
         $this->data["title"] = "Giỏ hàng";
         $this->data["view"] = $this->view(_CLENTS, "carts/index");

@@ -54,7 +54,7 @@
         </div>
     </form>
 
-    <table class="table align-middle mt-3">
+    <table class="table align-middle mt-3 ">
         <thead style="height: 60px;" class="align-middle">
             <tr class="">
                 <th width="5%">STT</th>

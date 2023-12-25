@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row mt-lg-3 home d-flex align-items-start">
+    <div class=" mt-lg-3 home">
         <!-- Aside -->
-        <div class="col-lg-3 bg-white rounded-2 py-3 px-2 aside position-relative d-none d-lg-block">
+        <div class="bg-white rounded-2 py-3 px-2 aside position-relative d-none d-lg-block home-aside">
             <h2 class="ps-3 fs-6 text-uppercase fw-bold">Loại điện thoại</h2>
             <ul class="list-group list-group-flush px-1 category-list">
                 <?php foreach ($allCategory as $category) : ?>
@@ -24,12 +24,16 @@
                         </a>
                     </li>
                 <?php endforeach ?>
+
+                <button class="btn btn-outline-primary btn-sm mt-4 btn-clear">Xóa bộ lọc</button>
+
+
             </ul>
 
 
         </div>
         <!-- Product -->
-        <div class="col-lg-9 mt-3 mt-lg-0 product">
+        <div class="mt-3 mt-lg-0  home-product">
             <!-- Slider -->
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner rounded-4">

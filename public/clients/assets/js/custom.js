@@ -27,3 +27,28 @@ function updateSortBy(value) {
   // Sử dụng hàm updateParams đã có
   updateParams("priceSort", value);
 }
+
+const btnClear = document.querySelector(".btn-clear");
+if (btnClear) {
+  btnClear.addEventListener("click", () => {
+    // Lấy đối tượng URL từ địa chỉ hiện tại
+    var url = new URL(window.location.href);
+
+    // Xóa tham số 'brand' và 'category'
+    url.searchParams.delete("brand");
+    url.searchParams.delete("category");
+
+    history.replaceState({}, "", url.href);
+    window.location.reload();
+  });
+}
+
+const avatarFile = document.querySelector("#upload-avatar");
+if (avatarFile) {
+  avatarFile.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    const avatar = document.querySelector(".avatar");
+    const url = URL.createObjectURL(file);
+    avatar.setAttribute("src", url);
+  });
+}

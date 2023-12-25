@@ -172,6 +172,12 @@ class Validate
             }
         }
     }
+    public function required($field, $name, $message)
+    {
+        if (empty(trim($field))) {
+            $this->errors[$name] = $message;
+        }
+    }
 
 
     public function getErrors()

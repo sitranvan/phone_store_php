@@ -17,9 +17,16 @@ $authRoutes = [
     'className' => AuthMiddleware::class,
     'routes' => [
         'lien-he', 'thay-doi-mat-khau',
-
-        'gio-hang'
-
+        'gio-hang',
+        'them-gio-hang/(.+)',
+        'cap-nhat-so-luong',
+        'xoa-san-pham-trong-gio-hang/(.+)',
+        'thong-tin-ca-nhan',
+        'submit-update-profile',
+        'submit-create-order',
+        'don-hang-cua-toi',
+        'huy-don-hang',
+        'chi-tiet-don-hang'
     ],
 ];
 
@@ -27,6 +34,9 @@ $adminRoutes = [
     'className' => AdminMiddleware::class,
     'routes' => [
         'admin',
+        'admin/nguoi-dung',
+        'admin/vo-hieu-hoa-nguoi-dung/(.+)',
+        'admin/xoa-tai-khoan-nguoi-dung/(.+)',
         'admin/san-pham',
         'admin/them-san-pham',
         'admin/submit-add-product',

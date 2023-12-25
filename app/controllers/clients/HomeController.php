@@ -30,20 +30,20 @@ class HomeController extends Controller
         $this->data['forward']['allCategory'] = $allCategory;
         $this->data['forward']['allBrand'] = $allBrand;
         if ($request->isGet()) {
-            if ($request->isGet()) {
-                $allQuery = $request->getAll();
-                $search = $request->get('search');
-                $active = $request->get('active');
-                $category = $request->get('category');
-                $brand = $request->get('brand');
-                $sort = $request->get('sort', 'desc');
-                $page = $request->get('page', 1);
-                $priceSort = $request->get('priceSort', 'all');
-            }
+
+            $allQuery = $request->getAll();
+            $search = $request->get('search');
+            $active = $request->get('active');
+            $category = $request->get('category');
+            $brand = $request->get('brand');
+            $sort = $request->get('sort', 'desc');
+            $page = $request->get('page', 1);
+            $priceSort = $request->get('priceSort', 'all');
+            $perPage = 10;
         }
 
 
-        $allProduct = $this->product->getAllProduct($search, $active, $category, $brand, $sort, $page, $priceSort);
+        $allProduct = $this->product->getAllProduct($search, $active, $category, $brand, $sort, $page, $priceSort, " WHERE active = 1", $perPage);
         $this->data['forward']['allQuery'] = $allQuery;
 
         $totalPage = count($allProduct);

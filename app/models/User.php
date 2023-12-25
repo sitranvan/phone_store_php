@@ -2,11 +2,32 @@
 
 namespace App\Model;
 
+use App\Classes\Login;
 use App\Core\Model;
 
 class User extends Model
 {
     protected $table = 'users';
+
+
+    public function getAllUser($search = '', $page = 1)
+    {
+        $condition = " WHERE 1";
+
+        if (!empty($search)) {
+            $condition .= " AND fullname LIKE '%$search%'";
+        }
+        // perPage = 8
+        $perPage = 8;
+
+        // Calculate offset for pagination
+        $offset = ($page - 1) * $perPage;
+
+        // Adding LIMIT/OFFSET clauses for pagination
+        $condition .= " ORDER BY created_at DESC LIMIT $perPage OFFSET $offset";
+        return $this->getAll($this->table, $condition);
+    }
+
 
     public function insertUser($data = [])
     {
@@ -22,6 +43,10 @@ class User extends Model
     {
         return $this->update($this->table, $data, $condition);
     }
+    public function deleteUser($id)
+    {
+        return $this->delete($this->table, "id=$id");
+    }
 
     public function getUser($condition = '')
     {
@@ -32,5 +57,11 @@ class User extends Model
     {
 
         return $this->exists($this->table, $condition);
+    }
+    public function getProfile()
+    {
+        $login = new Login();
+        $id = $login->getUser()['id'];
+        return $this->getBySql("SELECT users.*,addresses.*  FROM {$this->table} JOIN addresses ON {$this->table}.id = addresses.user_id WHERE users.id=$id");
     }
 }

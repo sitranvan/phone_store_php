@@ -51,20 +51,43 @@ function getContentForgotPassword($linkReset = '')
 function toast($title, $icon)
 {
   return "
-      <script>
-        Swal.fire({
-          toast: true,
-          icon: '$icon', 
-          title: '$title',
-          position: 'top-right',
-          showConfirmButton: false,
-          timer: 1000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
-      </script>
+        <script>
+            Swal.fire({
+                toast: true,
+                icon: '$icon', 
+                title: '$title',
+                position: 'bottom-right',
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                },
+                willClose: () => {
+                    Swal.enableBodyScroll(); // Tắt overlay khi toast biến mất
+                }
+            })
+        </script>
     ";
+}
+
+// 0 -> chờ xác nhận, 1 -> đã xác nhận, 2 -> đang giao hàng, 3 -> giao hàng thành công, 4 -> đã hủy
+function tagStatusOrder($status)
+{
+  if ($status == 0) {
+    return "<button class='btn btn-sm btn-warning'>Chờ xác nhận</button>";
+  }
+  if ($status == 1) {
+    return "<button class='btn btn-sm btn-info'>Đã xác nhận</button>";
+  }
+  if ($status == 2) {
+    return "<button class='btn btn-sm btn-primary'>Đang giao hàng</button>";
+  }
+  if ($status == 3) {
+    return "<button class='btn btn-sm btn-success'>Giao hàng thành công</button>";
+  }
+  if ($status == 4) {
+    return "<button class='btn btn-sm btn-danger'>Đã hủy</button>";
+  }
 }

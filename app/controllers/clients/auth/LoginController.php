@@ -50,6 +50,12 @@ class LoginController extends Controller
                 // nếu login bằng user
                 $userLogin = $this->user->getUser($condition);
 
+
+                if ($userLogin['status'] == 1) {
+                    Response::setMessage('Tài khoản đã bị vô hiệu hóa, vui lòng liên hệ với quản trị viên!');
+                    Response::redirect('dang-nhap');
+                }
+
                 $infoLogin = $userLogin;
 
                 if (!empty($infoLogin)) {
@@ -115,7 +121,7 @@ class LoginController extends Controller
             // 1-admin, 2-customer
             if ($roleId == 1) {
                 Session::flash('toast', toast('Đăng nhập thành công!', 'success'));
-                Response::redirect('admin');
+                Response::redirect('admin/nguoi-dung');
             } else {
                 Session::flash('toast', toast('Đăng nhập thành công!', 'success'));
                 Response::redirect('');

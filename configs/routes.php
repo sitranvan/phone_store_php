@@ -3,6 +3,11 @@ $routes = [
     // Admin route
     _ADMIN => [
         'admin' => 'admin/DashboardController',
+
+        'admin/nguoi-dung' => 'admin/users/ListUserController',
+        'admin/vo-hieu-hoa-nguoi-dung/(.+)' => 'admin/users/DisableUserController/index/$1',
+        'admin/xoa-tai-khoan-nguoi-dung/(.+)' => 'admin/users/DeleteUserController/index/$1',
+
         'admin/san-pham' => 'admin/products/ListProductController',
         'admin/them-san-pham' => 'admin/products/CreateProductController',
         'admin/submit-add-product' => 'admin/products/CreateProductController/createProduct',
@@ -46,5 +51,15 @@ $routes = [
         'gio-hang' => 'clients/carts/ListCartController',
 
         'them-gio-hang/(.+)' => 'clients/carts/AddToCartController/index/$1',
+        'cap-nhat-so-luong' => 'clients/carts/UpdateQuantityController',
+        'xoa-san-pham-trong-gio-hang/(.+)' => 'clients/carts/DeleteProductInCartController/index/$1',
+        'thong-tin-ca-nhan' => 'clients/users/UpdateProfileController',
+        'submit-update-profile' => 'clients/users/UpdateProfileController/updateProfile',
+        'tao-don-hang' => 'clients/orders/CreateOrderController',
+        'submit-create-order' => 'clients/orders/CreateOrderController/createOrder',
+
+        'don-hang-cua-toi' => 'clients/orders/MyOrderController',
+        'huy-don-hang' => 'clients/orders/CancelOrderController',
+        'chi-tiet-don-hang/(.+)' => 'clients/orders/DetailOrderController/index/$1'
     ]
 ];

@@ -1,10 +1,4 @@
 <section>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= route('') ?>">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng</li>
-        </ol>
-    </nav>
     <div class="mt-5">
         <h4 class="text-secondary text-center mb-5 text-uppercase">
             Chi tiết đơn hàng
@@ -24,6 +18,14 @@
                     <li>
                         <i class="ri-calendar-check-line"></i>
                         Ngày đặt hàng: <?= App\Classes\Helpers::formatDate($order['order_date']) ?>
+                    </li>
+                    <li>
+                        <i class="ri-message-2-line"></i>
+                        Người đặt: <?= !empty($order['fullname']) ? $order['fullname'] : '' ?>
+                    </li>
+                    <li>
+                        <i class="ri-message-2-line"></i>
+                        Emal: <?= !empty($order['email']) ? $order['email'] : '' ?>
                     </li>
                     <li>
                         <i class="ri-message-2-line"></i>

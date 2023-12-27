@@ -40,20 +40,19 @@
                         <?php endif ?>
                     </td>
                     <td>
-                        <a class="btn btn-sm  <?= $user['status'] == 0 ? 'btn-warning' : 'btn-primary' ?> " href="<?= route('admin/vo-hieu-hoa-nguoi-dung/' . $user['id']) ?>">
-                            <i class="ri-spam-3-line"></i>
-                            <?= $user['status'] == 0 ? 'Vô hiệu hóa' : 'Mở vô hiệu hóa' ?>
-                        </a>
-                        <a onclick="confirmDelete(event, <?= $user['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $user['id'] ?>" href="<?= route('admin/xoa-tai-khoan-nguoi-dung/' . $user['id']) ?>">
-                            <i class='bx bxs-trash-alt'></i>
-                            Xóa tài khoản
-                        </a>
-
+                        <?php if ($user['role_id'] != 1) : ?>
+                            <a class="btn btn-sm  <?= $user['status'] == 0 ? 'btn-warning' : 'btn-primary' ?> " href="<?= route('admin/vo-hieu-hoa-nguoi-dung/' . $user['id']) ?>">
+                                <i class="ri-spam-3-line"></i>
+                                <?= $user['status'] == 0 ? 'Vô hiệu hóa' : 'Mở vô hiệu hóa' ?>
+                            </a>
+                            <a onclick="confirmDelete(event, <?= $user['id'] ?>)" class="btn btn-sm btn-danger confirm-delete-<?= $user['id'] ?>" href="<?= route('admin/xoa-tai-khoan-nguoi-dung/' . $user['id']) ?>">
+                                <i class='bx bxs-trash-alt'></i>
+                                Xóa tài khoản
+                            </a>
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endforeach ?>
         </tbody>
     </table>
-
-
 </main>

@@ -56,7 +56,7 @@ function toast($title, $icon)
                 toast: true,
                 icon: '$icon', 
                 title: '$title',
-                position: 'bottom-right',
+                position: 'bottom-left',
                 showConfirmButton: false,
                 timer: 1000,
                 timerProgressBar: true,

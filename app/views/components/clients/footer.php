@@ -2,7 +2,7 @@
     <div class="border-bottom">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 container">
             <div class="me-5 d-none d-lg-block">
-                <span>Kết nối với chúng tôi trên các mạng xã hội:</span>
+                <span>Kết nối với cửa hàng qua mạng xã hội:</span>
             </div>
             <div>
                 <a href="" class="me-4 text-decoration-none  link-secondary">
@@ -39,40 +39,7 @@
                     </p>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Danh mục
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Điện thoại</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Laptop</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Tai nghe phụ kiện</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Đồng hồ</a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Trợ giúp
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Đánh giá</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Đơn đặt hàng</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Trợ giúp</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset text-decoration-none">Cài đặt</a>
-                    </p>
-                </div>
+
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>

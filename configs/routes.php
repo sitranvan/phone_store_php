@@ -28,6 +28,14 @@ $routes = [
         'admin/sua-thuong-hieu/(.+)' => 'admin/brands/EditBrandController/index/$1',
         'admin/submit-edit-brand' => 'admin/brands/EditBrandController/updateBrand',
         'admin/xoa-thuong-hieu/(.+)' => 'admin/brands/DeleteBrandController/index/$1',
+
+        'admin/don-hang' => 'admin/orders/ListOrderController',
+        'admin/chi-tiet-don-hang/(.+)' => 'admin/orders/DetailOrderController/index/$1',
+        'admin/xac-nhan-don-hang/(.+)' => 'admin/orders/ConfirmOrderController/index/$1',
+        'admin/dang-giao-hang/(.+)' => 'admin/orders/DeliveringOrderController/index/$1',
+        'admin/da-giao-hang/(.+)' => 'admin/orders/DeliveredOrderController/index/$1',
+        'admin/huy-don-hang/(.+)' => 'admin/orders/CancelOrderController/index/$1',
+
     ],
     // Clients route
     _CLENTS => [

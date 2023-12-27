@@ -32,6 +32,12 @@
                 <span>Thương hiệu</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?= _PATH_INFO == 'admin/don-hang' ? 'active' : 'collapsed' ?>" href="<?= route('admin/don-hang') ?>">
+                <i class="ri-ship-2-line"></i>
+                <span>Đơn hàng</span>
+            </a>
+        </li>
     </ul>
 
 </aside>

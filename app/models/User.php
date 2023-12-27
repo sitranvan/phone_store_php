@@ -24,8 +24,9 @@ class User extends Model
         $offset = ($page - 1) * $perPage;
 
         // Adding LIMIT/OFFSET clauses for pagination
-        $condition .= " ORDER BY created_at DESC LIMIT $perPage OFFSET $offset";
-        return $this->getAll($this->table, $condition);
+        $condition .= " ORDER BY users.created_at DESC LIMIT $perPage OFFSET $offset";
+        $join = " JOIN roles ON {$this->table}.role_id = roles.id ";
+        return $this->getAll($this->table . $join, $condition);
     }
 
 

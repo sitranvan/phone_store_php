@@ -52,6 +52,12 @@ $adminRoutes = [
         'admin/submit-add-brand',
         'admin/sua-thuong-hieu/(.+)',
         'admin/submit-edit-brand',
-        'admin/xoa-thuong-hieu/(.+)'
+        'admin/xoa-thuong-hieu/(.+)',
+        'admin/don-hang',
+        'admin/chi-tiet-don-hang/(.+)',
+        'admin/xac-nhan-don-hang/(.+)',
+        'admin/dang-giao-hang/(.+)',
+        'admin/da-giao-hang/(.+)',
+        'admin/huy-don-hang/(.+)',
     ],
 ];

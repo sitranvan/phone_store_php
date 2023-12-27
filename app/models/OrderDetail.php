@@ -31,4 +31,9 @@ class OrderDetail extends Model
     {
         return $this->getAllBySql("SELECT products.name AS product_name,$this->table.*  FROM $this->table JOIN products ON {$this->table}.product_id = products.id WHERE order_id = $orderId");
     }
+
+    public function getAllOrderProduct($orderId)
+    {
+        return $this->getAllBySql("SELECT products.name AS product_name,$this->table.*  FROM $this->table JOIN products ON {$this->table}.product_id = products.id WHERE order_id = $orderId");
+    }
 }

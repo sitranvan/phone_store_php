@@ -37,14 +37,14 @@
             <!-- Slider -->
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner rounded-4">
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img height="360" src="https://i.pinimg.com/originals/cd/1c/7c/cd1c7cbd61e5f596d2d59ae2ea7b3d9c.jpg" class="d-block w-100" alt="...">
+                    </div>
                     <div class="carousel-item active" data-bs-interval="5000">
-                        <img src="https://salt.tikicdn.com/cache/w1080/ts/tka/0d/e1/6f/7beb243488a74f0712a451fe8e8d3df8.png.webp" class="d-block w-100" alt="...">
+                        <img height="360" src="https://img.freepik.com/premium-psd/horizontal-website-banne_451189-110.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="https://salt.tikicdn.com/cache/w1080/ts/tikimsp/f7/5a/d8/dd6c6cfffc6c7588b4f69c4634a4eae9.png.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="https://salt.tikicdn.com/cache/w1080/ts/tikimsp/50/37/64/310dbf60ab052c3a6da580737e46ae5e.png.webp" class="d-block w-100" alt="...">
+                        <img height="360" src="https://img.freepik.com/premium-vector/mockup-3d-podium-stage-with-smartphone-design-template_534957-2.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

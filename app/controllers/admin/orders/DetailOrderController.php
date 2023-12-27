@@ -16,15 +16,14 @@ class DetailOrderController extends Controller
     }
     public function index($orderId)
     {
-        $order = $this->order->getMyOrder($orderId);
         $allProductOrder = $this->orderDetail->getAllMyOrderProduct($orderId);
+        $order = $this->order->getOrder($orderId);
         $address = $order['city'] . ', ' . $order['district'] . ', ' . $order['village'] . ', ' . $order['description'];
-
+        $this->data["title"] = "Chi tiết đơn hàng";
         $this->data['forward']['order'] = $order;
         $this->data['forward']['address'] = $address;
         $this->data['forward']['allProductOrder'] = $allProductOrder;
-        $this->data["title"] = "Chi tiết đơn hàng";
-        $this->data["view"] = $this->view(_CLENTS, "orders/detail");
-        return $this->layout("client_layout", $this->data);
+        $this->data["view"] = $this->view(_ADMIN, 'orders/detail');
+        return $this->layout("admin_layout", $this->data);
     }
 }

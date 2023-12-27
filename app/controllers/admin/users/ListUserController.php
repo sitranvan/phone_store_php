@@ -25,6 +25,8 @@ class ListUserController extends Controller
             'search' => $search,
         ];
         $allUser = $this->user->getAllUser($search, $page);
+
+
         $this->data['forward']['allUser'] = $allUser;
         $this->data['forward']['allQuery'] = $allQuery;
         $this->data["title"] = "Quản lý người dùng";
